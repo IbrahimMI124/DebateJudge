@@ -16,6 +16,14 @@
     "mode": "multiplicative",
     "softening": 0.6
   },
+  "rebuttal": {
+    "enabled": true,
+    "similarity_threshold": 0.6,
+    "soft_threshold_band": 0.1,
+    "soft_threshold_weight": 0.5,
+    "contradiction_bonus": 0.15,
+    "agreement_bonus": 0.05
+  },
   "winner": {
     "return_tie": true,
     "tie_epsilon": 0.02

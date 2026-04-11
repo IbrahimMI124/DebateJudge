@@ -49,7 +49,7 @@
     {"id": 7, "speaker": "A", "has_evidence": false, "claim_type": "policy", "confidence": 0.65},
     {"id": 8, "speaker": "B", "has_evidence": false, "claim_type": "historical", "confidence": 0.6},
     {"id": 9, "speaker": "A", "has_evidence": true, "claim_type": "empirical", "confidence": 0.75},
-    {"id": 10, "speaker": "B", "has_evidence": false, "claim_type": "rebuttal", "confidence": 0.6},
+    {"id": 10, "speaker": "B", "has_evidence": false, "confidence": 0.6},
     {"id": 11, "speaker": "A", "has_evidence": false, "claim_type": "minimization", "confidence": 0.4},
     {"id": 12, "speaker": "A", "has_evidence": true, "claim_type": "risk", "confidence": 0.8},
     {"id": 13, "speaker": "B", "has_evidence": false, "claim_type": "absolute", "confidence": 0.4},

@@ -35,14 +35,16 @@ def run_and_print(
     from module4_judgement.merge import merge_inputs
     from module4_judgement.nli import compute_all_consistency
     from module4_judgement.preprocessing import preprocess_statements
-    from module4_judgement.scoring import score_all_statements, score_all_statements_detailed
+    from module4_judgement.scoring import score_all_statements_detailed
     from module4_judgement.utils import ensure_list
 
     statements = preprocess_statements(statements)
     combined = merge_inputs(statements, ensure_list(claims), ensure_list(facts))
 
-    statement_scores = score_all_statements(combined, topic, statements)
+    # Compute detailed scoring once and derive `statement_scores` from it.
+    # This avoids recomputing embedding-based features twice in the debug run.
     statement_details = score_all_statements_detailed(combined, topic, statements)
+    statement_scores = {sid: float(d["final_score"]) for sid, d in statement_details.items()}
 
     speaker_scores_raw = aggregate_scores(statement_scores, combined)
     speaker_scores = (
@@ -65,6 +67,15 @@ def run_and_print(
             f"fact={detail['fact_score']:.3f}  rel={detail['relevance']:.3f}  "
             f"evidence={detail['has_evidence']}  weight={detail['time_weight']:.3f}"
         )
+        rebut = detail.get("rebuttal") or {}
+        if rebut.get("enabled"):
+            sim = rebut.get("similarity")
+            sim_str = f"{sim:.3f}" if isinstance(sim, (int, float)) else "n/a"
+            print(
+                f"rebuttal: interaction={rebut.get('interaction')}  label={rebut.get('nli_label')}  "
+                f"is_rebuttal={rebut.get('is_rebuttal')}  sim={sim_str}  "
+                f"thr={rebut.get('threshold')}  w={rebut.get('weight')}  bonus={rebut.get('bonus')}"
+            )
         print(
             f"base={detail['base_score']:.3f} -> final={detail['final_score']:.3f}  "
             f"(fact {detail['contrib_fact']:.3f} + rel {detail['contrib_relevance']:.3f} + "

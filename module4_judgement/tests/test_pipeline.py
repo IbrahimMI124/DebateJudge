@@ -23,7 +23,7 @@ class TestPipeline(unittest.TestCase):
         ]
 
         claims = [
-            {"id": 1, "speaker": "A", "has_evidence": True, "claim_type": "statistical", "confidence": 0.9},
+            {"id": 1, "speaker": "A", "has_evidence": True, "confidence": 0.9},
             # Missing optional fields should be handled
             {"id": 2, "speaker": "B"},
         ]

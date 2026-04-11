@@ -17,6 +17,20 @@ from .config import (
     get_time_weight_total_minus_1_scale,
 )
 from .relevance import compute_relevance
+from .rebuttal import compute_rebuttal_bonus
+
+
+def _previous_opponent_text(ordered_statements, idx: int) -> str | None:
+    """Return the most recent previous statement from a different speaker."""
+
+    if idx <= 0:
+        return None
+
+    current_speaker = ordered_statements[idx].get("speaker")
+    for j in range(idx - 1, -1, -1):
+        if ordered_statements[j].get("speaker") != current_speaker:
+            return ordered_statements[j].get("text")
+    return None
 
 
 def compute_time_weight(position, total):
@@ -67,6 +81,13 @@ def score_statement(item, relevance, position, total):
 
     score *= compute_time_weight(position, total)
 
+    # Rebuttal awareness (optional): additive bonus if current statement is
+    # sufficiently similar to the immediately previous opponent statement.
+    # This does not modify the existing base scoring components above.
+    rebuttal_info = item.get("_rebuttal", None)
+    if isinstance(rebuttal_info, dict):
+        score += float(rebuttal_info.get("bonus", 0.0) or 0.0)
+
     return score
 
 
@@ -79,6 +100,9 @@ def score_all_statements(combined, topic, ordered_statements):
         item = combined[stmt["id"]]
 
         relevance = compute_relevance(stmt["text"], topic)
+
+        prev_opp = _previous_opponent_text(ordered_statements, idx)
+        item["_rebuttal"] = compute_rebuttal_bonus(stmt["text"], prev_opp)
 
         score = score_statement(item, relevance, idx, total)
 
@@ -109,7 +133,11 @@ def score_statement_detailed(item, relevance, position, total):
 
     base_score = contrib_fact + contrib_relevance + contrib_evidence + contrib_base
     weight = compute_time_weight(position, total)
-    final_score = base_score * weight
+
+    rebuttal = item.get("_rebuttal") if isinstance(item.get("_rebuttal"), dict) else None
+    rebuttal_bonus = float(rebuttal.get("bonus", 0.0) or 0.0) if rebuttal else 0.0
+
+    final_score = base_score * weight + rebuttal_bonus
 
     return {
         "fact_score": fact_score,
@@ -127,6 +155,15 @@ def score_statement_detailed(item, relevance, position, total):
         "contrib_base": contrib_base,
         "base_score": base_score,
         "time_weight": weight,
+        "rebuttal": rebuttal
+        if rebuttal
+        else {
+            "enabled": False,
+            "threshold": None,
+            "similarity": None,
+            "is_rebuttal": False,
+            "bonus": 0.0,
+        },
         "final_score": final_score,
     }
 
@@ -140,6 +177,8 @@ def score_all_statements_detailed(combined, topic, ordered_statements):
     for idx, stmt in enumerate(ordered_statements):
         item = combined[stmt["id"]]
         relevance = compute_relevance(stmt["text"], topic)
+        prev_opp = _previous_opponent_text(ordered_statements, idx)
+        item["_rebuttal"] = compute_rebuttal_bonus(stmt["text"], prev_opp)
         details[stmt["id"]] = score_statement_detailed(item, relevance, idx, total)
 
     return details

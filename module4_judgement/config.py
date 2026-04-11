@@ -367,3 +367,115 @@ def get_tie_epsilon() -> float:
 	if json_value is not None:
 		return json_value
 	return 1e-6
+
+
+# ------------------------------
+# Rebuttal awareness (cross-speaker)
+# ------------------------------
+
+REBUTTAL_ENABLED_DEFAULT = False
+REBUTTAL_SIMILARITY_THRESHOLD_DEFAULT = 0.6
+REBUTTAL_BONUS_DEFAULT = 0.1
+REBUTTAL_CONTRADICTION_BONUS_DEFAULT = REBUTTAL_BONUS_DEFAULT
+REBUTTAL_AGREEMENT_BONUS_DEFAULT = 0.0
+REBUTTAL_SOFT_THRESHOLD_BAND_DEFAULT = 0.0
+REBUTTAL_SOFT_THRESHOLD_WEIGHT_DEFAULT = 0.5
+
+
+def rebuttal_enabled() -> bool:
+	env_value = _env_bool_optional("DEBATEJUDGE_REBUTTAL_ENABLED")
+	if env_value is not None:
+		return env_value
+	json_value = _json_bool(["rebuttal", "enabled"])
+	if json_value is not None:
+		return json_value
+	return REBUTTAL_ENABLED_DEFAULT
+
+
+def get_rebuttal_similarity_threshold() -> float:
+	env_value = _env_float_optional("DEBATEJUDGE_REBUTTAL_SIMILARITY_THRESHOLD")
+	if env_value is not None:
+		return env_value
+	json_value = _json_float(["rebuttal", "similarity_threshold"])
+	if json_value is not None:
+		return json_value
+	return REBUTTAL_SIMILARITY_THRESHOLD_DEFAULT
+
+
+def get_rebuttal_soft_threshold_band() -> float:
+	"""Optional soft band below the similarity threshold.
+
+	If > 0:
+	- sim >= threshold                -> weight 1.0
+	- threshold - band <= sim < thr   -> weight `soft_threshold_weight`
+	- sim < threshold - band          -> weight 0.0
+
+	Default is 0.0, which preserves the original hard threshold.
+	"""
+
+	env_value = _env_float_optional("DEBATEJUDGE_REBUTTAL_SOFT_THRESHOLD_BAND")
+	if env_value is not None:
+		return env_value
+	json_value = _json_float(["rebuttal", "soft_threshold_band"])
+	if json_value is not None:
+		return json_value
+	return REBUTTAL_SOFT_THRESHOLD_BAND_DEFAULT
+
+
+def get_rebuttal_soft_threshold_weight() -> float:
+	"""Weight applied inside the soft band (see `get_rebuttal_soft_threshold_band`)."""
+
+	env_value = _env_float_optional("DEBATEJUDGE_REBUTTAL_SOFT_THRESHOLD_WEIGHT")
+	if env_value is not None:
+		return env_value
+	json_value = _json_float(["rebuttal", "soft_threshold_weight"])
+	if json_value is not None:
+		return json_value
+	return REBUTTAL_SOFT_THRESHOLD_WEIGHT_DEFAULT
+
+
+def get_rebuttal_bonus() -> float:
+	"""Backward-compatible alias.
+
+	Historically rebuttal used a single flat bonus (`rebuttal.bonus`). The newer
+	NLI-based logic uses separate `contradiction_bonus` and `agreement_bonus`.
+	This function returns the contradiction bonus.
+	"""
+	return get_rebuttal_contradiction_bonus()
+
+
+def get_rebuttal_contradiction_bonus() -> float:
+	"""Base coefficient for contradiction rebuttals.
+
+	Final applied bonus scales by similarity: bonus = coeff * similarity.
+	"""
+	env_value = _env_float_optional("DEBATEJUDGE_REBUTTAL_CONTRADICTION_BONUS")
+	if env_value is not None:
+		return env_value
+	json_value = _json_float(["rebuttal", "contradiction_bonus"])
+	if json_value is not None:
+		return json_value
+
+	# Backward-compat: fall back to the older single bonus.
+	legacy_env = _env_float_optional("DEBATEJUDGE_REBUTTAL_BONUS")
+	if legacy_env is not None:
+		return legacy_env
+	legacy_json = _json_float(["rebuttal", "bonus"])
+	if legacy_json is not None:
+		return legacy_json
+
+	return REBUTTAL_CONTRADICTION_BONUS_DEFAULT
+
+
+def get_rebuttal_agreement_bonus() -> float:
+	"""Base coefficient for agreement/entailment interactions.
+
+	Final applied bonus scales by similarity: bonus = coeff * similarity.
+	"""
+	env_value = _env_float_optional("DEBATEJUDGE_REBUTTAL_AGREEMENT_BONUS")
+	if env_value is not None:
+		return env_value
+	json_value = _json_float(["rebuttal", "agreement_bonus"])
+	if json_value is not None:
+		return json_value
+	return REBUTTAL_AGREEMENT_BONUS_DEFAULT

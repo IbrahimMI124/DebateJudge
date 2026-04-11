@@ -1,0 +1,27 @@
+{
+  "rebuttal": {
+    "enabled": true,
+    "similarity_threshold": 0.6,
+    "soft_threshold_band": 0.1,
+    "soft_threshold_weight": 0.5,
+    "contradiction_bonus": 0.15,
+    "agreement_bonus": 0.05
+  },
+  "scoring": {
+    "fact_default": 0.5,
+    "fact_weight": 0.4,
+    "relevance_weight": 0.2,
+    "evidence_bonus": 0.2,
+    "base_bonus": 0.2
+  },
+  "time_weight": {
+    "mode": "spec"
+  },
+  "normalization": {
+    "normalize_speaker_scores": false
+  },
+  "winner": {
+    "return_tie": false,
+    "tie_epsilon": 1e-6
+  }
+}

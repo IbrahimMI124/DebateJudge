@@ -24,6 +24,48 @@ def _label_is_contradiction(label: str) -> bool:
     return lab == "CONTRADICTION" or lab == "LABEL_0"
 
 
+def _normalize_nli_label(label: str) -> str:
+    """Normalize MNLI labels across model/pipeline variants.
+
+    Common outputs include:
+    - "CONTRADICTION" / "NEUTRAL" / "ENTAILMENT"
+    - "LABEL_0" / "LABEL_1" / "LABEL_2" (roberta-large-mnli typical mapping)
+    """
+
+    lab = (label or "").upper()
+    if lab in {"CONTRADICTION", "NEUTRAL", "ENTAILMENT"}:
+        return lab
+    if lab == "LABEL_0":
+        return "CONTRADICTION"
+    if lab == "LABEL_1":
+        return "NEUTRAL"
+    if lab == "LABEL_2":
+        return "ENTAILMENT"
+    return lab or "NEUTRAL"
+
+
+def label_is_entailment(label: str) -> bool:
+    return _normalize_nli_label(label) == "ENTAILMENT"
+
+
+def label_is_contradiction(label: str) -> bool:
+    return _normalize_nli_label(label) == "CONTRADICTION"
+
+
+def classify_pair(premise_text: str, hypothesis_text: str) -> str:
+    """Classify (premise, hypothesis) as ENTAILMENT/NEUTRAL/CONTRADICTION.
+
+    Returns "NEUTRAL" when the NLI model isn't available.
+    """
+
+    if nli_model is None:
+        return "NEUTRAL"
+
+    result = nli_model({"text": premise_text, "text_pair": hypothesis_text})
+    pred = result[0] if isinstance(result, list) else result
+    return _normalize_nli_label(pred.get("label"))
+
+
 def compute_speaker_consistency(statements):
 
     contradictions = 0
@@ -45,9 +87,9 @@ def compute_speaker_consistency(statements):
                 # Use proper pair input for MNLI-style models.
                 result = nli_model({"text": s1["text"], "text_pair": s2["text"]})
                 pred = result[0] if isinstance(result, list) else result
-                result_label = pred["label"]
+                result_label = _normalize_nli_label(pred["label"])
 
-            if _label_is_contradiction(result_label):
+            if label_is_contradiction(result_label):
                 contradictions += 1
 
             total += 1
