@@ -1,0 +1,19 @@
+{
+  "scoring": {
+    "fact_default": 0.5,
+    "fact_weight": 0.4,
+    "relevance_weight": 0.25,
+    "evidence_bonus": 0.15,
+    "base_bonus": 0.2
+  },
+  "time_weight": {
+    "mode": "none"
+  },
+  "normalization": {
+    "normalize_speaker_scores": true
+  },
+  "winner": {
+    "return_tie": true,
+    "tie_epsilon": 0.01
+  }
+}

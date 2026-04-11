@@ -1,41 +1,69 @@
 from __future__ import annotations
 
-from .config import get_time_weight_mode
+from .config import (
+    get_scoring_base_bonus,
+    get_scoring_evidence_bonus,
+    get_scoring_fact_default,
+    get_scoring_fact_weight,
+    get_scoring_relevance_weight,
+    get_time_weight_mild_base,
+    get_time_weight_mild_scale,
+    get_time_weight_min_denom,
+    get_time_weight_mode,
+    get_time_weight_none_value,
+    get_time_weight_spec_base,
+    get_time_weight_spec_scale,
+    get_time_weight_total_minus_1_base,
+    get_time_weight_total_minus_1_scale,
+)
 from .relevance import compute_relevance
 
 
 def compute_time_weight(position, total):
     mode = (get_time_weight_mode() or "spec").lower()
+    min_denom = get_time_weight_min_denom()
+    min_denom = min_denom if min_denom > 0 else 1.0
 
     if mode == "none":
-        return 1.0
+        return get_time_weight_none_value()
 
     if mode == "mild":
-        denom = max(total - 1, 1)
-        return 1.0 + 0.1 * (position / denom)
+        denom = max(total - 1, min_denom)
+        base = get_time_weight_mild_base()
+        scale = get_time_weight_mild_scale()
+        return base + scale * (position / denom)
 
     if mode == "total_minus_1":
-        denom = max(total - 1, 1)
-        return 0.5 + 0.5 * (position / denom)
+        denom = max(total - 1, min_denom)
+        base = get_time_weight_total_minus_1_base()
+        scale = get_time_weight_total_minus_1_scale()
+        return base + scale * (position / denom)
 
-    # Default: original spec behavior
-    return 0.5 + 0.5 * (position / total)
+    # Default: spec behavior
+    denom = max(total, min_denom)
+    base = get_time_weight_spec_base()
+    scale = get_time_weight_spec_scale()
+    return base + scale * (position / denom)
 
 
 def score_statement(item, relevance, position, total):
-
-    fact_score = item.get("fact", {}).get("factual_score", 0.5)
+    fact_score = item.get("fact", {}).get("factual_score", get_scoring_fact_default())
     has_evidence = item.get("claim", {}).get("has_evidence", False)
 
-    score = 0
+    fact_w = get_scoring_fact_weight()
+    relevance_w = get_scoring_relevance_weight()
+    evidence_bonus = get_scoring_evidence_bonus()
+    base_bonus = get_scoring_base_bonus()
 
-    score += 0.4 * fact_score
-    score += 0.2 * relevance
+    score = 0.0
+
+    score += fact_w * fact_score
+    score += relevance_w * relevance
 
     if has_evidence:
-        score += 0.2
+        score += evidence_bonus
 
-    score += 0.2
+    score += base_bonus
 
     score *= compute_time_weight(position, total)
 
@@ -66,13 +94,18 @@ def score_statement_detailed(item, relevance, position, total):
     scoring logic used by `score_statement`.
     """
 
-    fact_score = item.get("fact", {}).get("factual_score", 0.5)
+    fact_score = item.get("fact", {}).get("factual_score", get_scoring_fact_default())
     has_evidence = item.get("claim", {}).get("has_evidence", False)
 
-    contrib_fact = 0.4 * fact_score
-    contrib_relevance = 0.2 * relevance
-    contrib_evidence = 0.2 if has_evidence else 0.0
-    contrib_base = 0.2
+    fact_w = get_scoring_fact_weight()
+    relevance_w = get_scoring_relevance_weight()
+    evidence_bonus = get_scoring_evidence_bonus()
+    base_bonus = get_scoring_base_bonus()
+
+    contrib_fact = fact_w * fact_score
+    contrib_relevance = relevance_w * relevance
+    contrib_evidence = evidence_bonus if has_evidence else 0.0
+    contrib_base = base_bonus
 
     base_score = contrib_fact + contrib_relevance + contrib_evidence + contrib_base
     weight = compute_time_weight(position, total)
@@ -82,6 +115,12 @@ def score_statement_detailed(item, relevance, position, total):
         "fact_score": fact_score,
         "relevance": relevance,
         "has_evidence": has_evidence,
+        "weights": {
+            "fact_weight": fact_w,
+            "relevance_weight": relevance_w,
+            "evidence_bonus": evidence_bonus,
+            "base_bonus": base_bonus,
+        },
         "contrib_fact": contrib_fact,
         "contrib_relevance": contrib_relevance,
         "contrib_evidence": contrib_evidence,

@@ -95,6 +95,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Debug runner for module4_judgement")
     parser.add_argument("--topic", default=None)
     parser.add_argument(
+        "--config-json",
+        default=None,
+        help="Path to a DebateJudge JSON config file (sets DEBATEJUDGE_CONFIG_JSON)",
+    )
+    parser.add_argument(
         "--lightweight",
         action="store_true",
         help="Set DEBATEJUDGE_LIGHTWEIGHT=1 for offline/fast runs",
@@ -117,6 +122,9 @@ def main() -> None:
     )
 
     args = parser.parse_args()
+
+    if args.config_json:
+        os.environ["DEBATEJUDGE_CONFIG_JSON"] = args.config_json
 
     if args.lightweight:
         os.environ["DEBATEJUDGE_LIGHTWEIGHT"] = "1"
