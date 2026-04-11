@@ -1,0 +1,83 @@
+{
+  "topic": "Should governments implement strict AI regulation to mitigate risks, even if it slows innovation and economic growth?",
+
+  "statements": [
+    {"id": 1, "speaker": "A", "text": "Strict AI regulation is necessary because uncontrolled AI systems can cause large-scale harm in areas like misinformation and automated decision-making."},
+
+    {"id": 2, "speaker": "B", "text": "Overregulation of AI will stifle innovation and make it harder for startups to compete with large corporations."},
+
+    {"id": 3, "speaker": "A", "text": "Without regulation, companies have little incentive to prioritize safety over profit, which historically leads to harmful outcomes."},
+
+    {"id": 4, "speaker": "B", "text": "Market competition and reputation already incentivize companies to build safe and reliable systems without heavy regulation."},
+
+    {"id": 5, "speaker": "A", "text": "However, reputational incentives often fail in fast-moving industries where harms are not immediately visible to users."},
+
+    {"id": 6, "speaker": "B", "text": "Even if some risks exist, slowing innovation could prevent beneficial applications of AI in healthcare and education."},
+
+    {"id": 7, "speaker": "A", "text": "Regulation does not necessarily slow innovation; it can create standards that increase trust and adoption."},
+
+    {"id": 8, "speaker": "B", "text": "Historically, regulation has often delayed technological progress and reduced economic growth."},
+
+    {"id": 9, "speaker": "A", "text": "Evidence from sectors like aviation shows that strong safety regulations can coexist with innovation."},
+
+    {"id": 10, "speaker": "B", "text": "AI is fundamentally different from aviation, so comparisons are not valid."},
+
+    {"id": 11, "speaker": "A", "text": "AI systems are not dangerous enough to justify strict regulation at this stage."},
+
+    {"id": 12, "speaker": "A", "text": "AI systems pose significant risks and must be tightly regulated to prevent harm."},
+
+    {"id": 13, "speaker": "B", "text": "Strict regulation will definitely destroy innovation and eliminate economic growth."},
+
+    {"id": 14, "speaker": "B", "text": "Some level of regulation may be beneficial if it is carefully designed and limited."},
+
+    {"id": 15, "speaker": "A", "text": "Regulation should be flexible and adaptive rather than overly strict."},
+
+    {"id": 16, "speaker": "A", "text": "Strict and rigid regulation is the only way to ensure safety in AI systems."},
+
+    {"id": 17, "speaker": "B", "text": "Many successful AI applications today already operate safely without any regulatory oversight."},
+
+    {"id": 18, "speaker": "A", "text": "There are numerous documented failures of AI systems causing bias and harm, showing that oversight is needed."}
+  ],
+
+  "claims": [
+    {"id": 1, "speaker": "A", "has_evidence": true, "claim_type": "risk", "confidence": 0.8},
+    {"id": 2, "speaker": "B", "has_evidence": false, "claim_type": "economic", "confidence": 0.7},
+    {"id": 3, "speaker": "A", "has_evidence": true, "claim_type": "historical", "confidence": 0.75},
+    {"id": 4, "speaker": "B", "has_evidence": false, "claim_type": "market", "confidence": 0.65},
+    {"id": 5, "speaker": "A", "has_evidence": false, "claim_type": "critique", "confidence": 0.6},
+    {"id": 6, "speaker": "B", "has_evidence": false, "claim_type": "tradeoff", "confidence": 0.7},
+    {"id": 7, "speaker": "A", "has_evidence": false, "claim_type": "policy", "confidence": 0.65},
+    {"id": 8, "speaker": "B", "has_evidence": false, "claim_type": "historical", "confidence": 0.6},
+    {"id": 9, "speaker": "A", "has_evidence": true, "claim_type": "empirical", "confidence": 0.75},
+    {"id": 10, "speaker": "B", "has_evidence": false, "claim_type": "rebuttal", "confidence": 0.6},
+    {"id": 11, "speaker": "A", "has_evidence": false, "claim_type": "minimization", "confidence": 0.4},
+    {"id": 12, "speaker": "A", "has_evidence": true, "claim_type": "risk", "confidence": 0.8},
+    {"id": 13, "speaker": "B", "has_evidence": false, "claim_type": "absolute", "confidence": 0.4},
+    {"id": 14, "speaker": "B", "has_evidence": false, "claim_type": "policy", "confidence": 0.6},
+    {"id": 15, "speaker": "A", "has_evidence": false, "claim_type": "policy", "confidence": 0.6},
+    {"id": 16, "speaker": "A", "has_evidence": false, "claim_type": "absolute", "confidence": 0.5},
+    {"id": 17, "speaker": "B", "has_evidence": false, "claim_type": "empirical", "confidence": 0.6},
+    {"id": 18, "speaker": "A", "has_evidence": true, "claim_type": "empirical", "confidence": 0.7}
+  ],
+
+  "facts": [
+    {"id": 1, "factual_score": 0.8, "confidence": 0.75},
+    {"id": 2, "factual_score": 0.6, "confidence": 0.65},
+    {"id": 3, "factual_score": 0.75, "confidence": 0.7},
+    {"id": 4, "factual_score": 0.6, "confidence": 0.6},
+    {"id": 5, "factual_score": 0.6, "confidence": 0.55},
+    {"id": 6, "factual_score": 0.65, "confidence": 0.6},
+    {"id": 7, "factual_score": 0.65, "confidence": 0.6},
+    {"id": 8, "factual_score": 0.55, "confidence": 0.55},
+    {"id": 9, "factual_score": 0.75, "confidence": 0.7},
+    {"id": 10, "factual_score": 0.55, "confidence": 0.55},
+    {"id": 11, "factual_score": 0.4, "confidence": 0.45},
+    {"id": 12, "factual_score": 0.8, "confidence": 0.75},
+    {"id": 13, "factual_score": 0.35, "confidence": 0.4},
+    {"id": 14, "factual_score": 0.6, "confidence": 0.6},
+    {"id": 15, "factual_score": 0.6, "confidence": 0.6},
+    {"id": 16, "factual_score": 0.45, "confidence": 0.5},
+    {"id": 17, "factual_score": 0.6, "confidence": 0.6},
+    {"id": 18, "factual_score": 0.75, "confidence": 0.7}
+  ]
+}

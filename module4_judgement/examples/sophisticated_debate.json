@@ -1,0 +1,45 @@
+{
+  "topic": "Urban transport policy: should cities implement congestion pricing and invest heavily in public transit?",
+  "statements": [
+    {"id": 1, "speaker": "A", "text": "Congestion pricing reduces traffic by discouraging unnecessary car trips during peak hours."},
+    {"id": 2, "speaker": "B", "text": "Congestion pricing is regressive and disproportionately burdens low-income commuters who lack flexible schedules."},
+    {"id": 3, "speaker": "A", "text": "If revenue is earmarked for transit improvements and targeted rebates, the policy can be progressive overall."},
+    {"id": 4, "speaker": "B", "text": "Public transit expansions take years; in the short term, congestion charges feel like a tax with little immediate benefit."},
+    {"id": 5, "speaker": "A", "text": "Even short-term, fewer cars improve bus speeds and reliability, which is an immediate benefit for many riders."},
+    {"id": 6, "speaker": "B", "text": "But if buses are overcrowded, faster trips do not help; capacity constraints are the real bottleneck."},
+    {"id": 7, "speaker": "A", "text": "Capacity can be increased relatively quickly by adding bus lanes, signal priority, and reallocating curb space."},
+    {"id": 8, "speaker": "B", "text": "Car access is essential for economic growth; restricting cars harms small businesses and reduces city productivity."},
+    {"id": 9, "speaker": "A", "text": "Evidence from several cities shows retail activity can remain stable or improve when streets are made more walkable and transit-friendly."},
+    {"id": 10, "speaker": "B", "text": "Actually, congestion pricing always decreases sales because fewer cars means fewer customers."},
+    {"id": 11, "speaker": "A", "text": "Congestion pricing never reduces emissions because drivers just shift routes and keep driving the same amount."},
+    {"id": 12, "speaker": "A", "text": "Congestion pricing reduces emissions by cutting stop-and-go traffic and reducing vehicle miles traveled."}
+  ],
+  "claims": [
+    {"id": 1, "speaker": "A", "has_evidence": true, "claim_type": "causal", "confidence": 0.75},
+    {"id": 2, "speaker": "B", "has_evidence": true, "claim_type": "equity", "confidence": 0.7},
+    {"id": 3, "speaker": "A", "has_evidence": false, "claim_type": "policy", "confidence": 0.6},
+    {"id": 4, "speaker": "B", "has_evidence": false, "claim_type": "temporal", "confidence": 0.55},
+    {"id": 5, "speaker": "A", "has_evidence": false, "claim_type": "operational", "confidence": 0.6},
+    {"id": 6, "speaker": "B", "has_evidence": false, "claim_type": "capacity", "confidence": 0.6},
+    {"id": 7, "speaker": "A", "has_evidence": true, "claim_type": "operational", "confidence": 0.65},
+    {"id": 8, "speaker": "B", "has_evidence": false, "claim_type": "economic", "confidence": 0.55},
+    {"id": 9, "speaker": "A", "has_evidence": true, "claim_type": "empirical", "confidence": 0.7},
+    {"id": 10, "speaker": "B", "has_evidence": false, "claim_type": "absolute", "confidence": 0.4},
+    {"id": 11, "speaker": "A", "has_evidence": false, "claim_type": "absolute", "confidence": 0.4},
+    {"id": 12, "speaker": "A", "has_evidence": true, "claim_type": "causal", "confidence": 0.7}
+  ],
+  "facts": [
+    {"id": 1, "factual_score": 0.75, "confidence": 0.7},
+    {"id": 2, "factual_score": 0.7, "confidence": 0.65},
+    {"id": 3, "factual_score": 0.6, "confidence": 0.55},
+    {"id": 4, "factual_score": 0.55, "confidence": 0.5},
+    {"id": 5, "factual_score": 0.65, "confidence": 0.6},
+    {"id": 6, "factual_score": 0.6, "confidence": 0.55},
+    {"id": 7, "factual_score": 0.65, "confidence": 0.6},
+    {"id": 8, "factual_score": 0.55, "confidence": 0.5},
+    {"id": 9, "factual_score": 0.7, "confidence": 0.6},
+    {"id": 10, "factual_score": 0.4, "confidence": 0.45},
+    {"id": 11, "factual_score": 0.35, "confidence": 0.45},
+    {"id": 12, "factual_score": 0.75, "confidence": 0.65}
+  ]
+}
