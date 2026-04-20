@@ -1,6 +1,7 @@
 transformers
 sentence-transformers
 torch
+accelerate
 numpy
 scikit-learn
 pytest

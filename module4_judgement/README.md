@@ -17,6 +17,38 @@ It returns a dict with:
 - **Full mode (default):** uses the specified models for relevance + NLI.
 - **Lightweight mode:** set `DEBATEJUDGE_LIGHTWEIGHT=1` to avoid downloading models (relevance/NLI fall back).
 
+## NLI backend (MNLI vs Qwen beta)
+By default, NLI uses `roberta-large-mnli`.
+
+To switch to the beta local-Qwen pair classifier (rich labels mapped back into 3-way NLI):
+- Env var: `DEBATEJUDGE_NLI_BACKEND=qwen`
+- JSON config: `{ "nli": { "backend": "qwen" } }`
+
+Important: your system `/usr/bin/python3` may not have ML deps installed.
+Use your conda `python` (the one that already runs MNLI) or install deps into system Python.
+
+### Smoke test (Qwen)
+If you already downloaded Qwen2.5 locally, point `DEBATEJUDGE_QWEN_MODEL` to the local folder.
+
+```bash
+cd "/home/mohammed-ibrahim/Downloads/Work/Sem 6/NLPDL/DebateJudge"
+unset DEBATEJUDGE_LIGHTWEIGHT
+
+# Use conda python (not /usr/bin/python3)
+export DEBATEJUDGE_NLI_BACKEND=qwen
+export DEBATEJUDGE_QWEN_MODEL="/ABS/PATH/TO/Qwen2.5-7B-Instruct"
+
+python -m module4_judgement.beta_llm.smoke_test
+```
+
+Optional (GPU sharding):
+
+```bash
+pip install accelerate
+export DEBATEJUDGE_QWEN_DEVICE_MAP=auto
+python -m module4_judgement.beta_llm.smoke_test
+```
+
 ## Calibration flags (optional)
 Defaults preserve the original spec behavior.
 

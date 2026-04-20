@@ -1,19 +1,32 @@
 from __future__ import annotations
 
-from .config import LIGHTWEIGHT_MODE, NLI_MODEL_NAME
+from .config import NLI_MODEL_NAME, get_nli_backend, is_lightweight_mode
 
-try:
-    from transformers import pipeline
-except Exception:  # pragma: no cover
-    pipeline = None
 
-# As specified (loaded unless lightweight mode or dependency/model unavailable)
-nli_model = None
-if not LIGHTWEIGHT_MODE and pipeline is not None:
+_MNLI_MODEL = None
+
+
+def _get_mnli_model():
+    global _MNLI_MODEL
+
+    if _MNLI_MODEL is not None:
+        return _MNLI_MODEL
+
+    if is_lightweight_mode():
+        return None
+
     try:
-        nli_model = pipeline("text-classification", model=NLI_MODEL_NAME)
+        from transformers import pipeline as hf_pipeline  # type: ignore[import-not-found]
     except Exception:
-        nli_model = None
+        return None
+
+    if hf_pipeline is None:
+        return None
+    try:
+        _MNLI_MODEL = hf_pipeline("text-classification", model=NLI_MODEL_NAME)
+    except Exception:
+        _MNLI_MODEL = None
+    return _MNLI_MODEL
 
 
 def _label_is_contradiction(label: str) -> bool:
@@ -58,10 +71,27 @@ def classify_pair(premise_text: str, hypothesis_text: str) -> str:
     Returns "NEUTRAL" when the NLI model isn't available.
     """
 
-    if nli_model is None:
+    if is_lightweight_mode():
         return "NEUTRAL"
 
-    result = nli_model({"text": premise_text, "text_pair": hypothesis_text})
+    backend = (get_nli_backend() or "").strip().lower()
+    if backend.startswith("qwen") or backend in {"llm", "beta_llm"}:
+        try:
+            from .beta_llm.qwen_pair_classifier import (  # type: ignore
+                classify_argument_relation,
+                map_rich_label_to_nli,
+            )
+
+            rich = classify_argument_relation(premise_text, hypothesis_text)
+            return map_rich_label_to_nli(str(rich.get("label", "")))
+        except Exception:
+            return "NEUTRAL"
+
+    mnli_model = _get_mnli_model()
+    if mnli_model is None:
+        return "NEUTRAL"
+
+    result = mnli_model({"text": premise_text, "text_pair": hypothesis_text})
     pred = result[0] if isinstance(result, list) else result
     return _normalize_nli_label(pred.get("label"))
 
@@ -80,14 +110,7 @@ def compute_speaker_consistency(statements):
             if s1["speaker"] != s2["speaker"]:
                 continue
 
-            if nli_model is None:
-                # Fallback: assume neutral/consistent when model isn't available.
-                result_label = "NEUTRAL"
-            else:
-                # Use proper pair input for MNLI-style models.
-                result = nli_model({"text": s1["text"], "text_pair": s2["text"]})
-                pred = result[0] if isinstance(result, list) else result
-                result_label = _normalize_nli_label(pred["label"])
+            result_label = classify_pair(s1["text"], s2["text"])
 
             if label_is_contradiction(result_label):
                 contradictions += 1

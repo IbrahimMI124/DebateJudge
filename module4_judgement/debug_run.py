@@ -74,7 +74,8 @@ def run_and_print(
             print(
                 f"rebuttal: interaction={rebut.get('interaction')}  label={rebut.get('nli_label')}  "
                 f"is_rebuttal={rebut.get('is_rebuttal')}  sim={sim_str}  "
-                f"thr={rebut.get('threshold')}  w={rebut.get('weight')}  bonus={rebut.get('bonus')}"
+                f"thr={rebut.get('threshold')}  w={rebut.get('weight')}  "
+                f"bonus={rebut.get('bonus')}"
             )
         print(
             f"base={detail['base_score']:.3f} -> final={detail['final_score']:.3f}  "

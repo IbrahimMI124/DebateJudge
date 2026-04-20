@@ -142,6 +142,21 @@ LIGHTWEIGHT_MODE = _env_bool("DEBATEJUDGE_LIGHTWEIGHT", False)
 RELEVANCE_MODEL_NAME = "all-MiniLM-L6-v2"
 NLI_MODEL_NAME = "roberta-large-mnli"
 
+# NLI backend selector
+# - "mnli": transformers MNLI classifier (default)
+# - "qwen": beta local Qwen argument-relation classifier mapped into 3-way NLI
+NLI_BACKEND_DEFAULT = "mnli"
+
+
+def get_nli_backend() -> str:
+	env_value = _env_str_optional("DEBATEJUDGE_NLI_BACKEND")
+	if env_value is not None:
+		return env_value.strip().lower()
+	json_value = _json_str(["nli", "backend"])
+	if json_value is not None:
+		return json_value.strip().lower()
+	return NLI_BACKEND_DEFAULT
+
 
 # ------------------------------
 # Scoring hyperparameters
@@ -479,3 +494,6 @@ def get_rebuttal_agreement_bonus() -> float:
 	if json_value is not None:
 		return json_value
 	return REBUTTAL_AGREEMENT_BONUS_DEFAULT
+
+
+
