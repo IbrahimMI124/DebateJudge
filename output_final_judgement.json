@@ -1,0 +1,12 @@
+{
+    "speaker_scores": {
+        "B": 3.288760555182471,
+        "A": 6.452360034887404
+    },
+    "consistency": {
+        "B": 0.8021978021978022,
+        "A": 0.8823529411764706
+    },
+    "winner": "A",
+    "explanation": "\nSpeaker A Score: 6.45\nSpeaker B Score: 3.29\n\nConsistency:\nA: 0.88\nB: 0.80\n\n\nStatement counts: A=18, B=14\nTime weighting mode: spec\nNormalized scores: no\n\nSpeaker A wins due to difference in consistency, different number of statements (unnormalized sum), positional weighting contributed.\n\nSignal summary:\nA evidence-backed: 0, avg_fact: 0.56\nB evidence-backed: 0, avg_fact: 0.53"
+}

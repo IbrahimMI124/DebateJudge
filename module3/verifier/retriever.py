@@ -2,11 +2,21 @@ import json
 import numpy as np
 import faiss
 from sentence_transformers import SentenceTransformer
+import os
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
-with open("data/corpus.json", "r", encoding="utf-8") as f:
+# Get the directory of the current script (verifier/)
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+# Go up one level to the module3 directory
+MODULE3_ROOT = os.path.dirname(SCRIPT_DIR)
+# Build the full path to the corpus file
+CORPUS_PATH = os.path.join(MODULE3_ROOT, "data", "corpus.json")
+
+
+with open(CORPUS_PATH, "r", encoding="utf-8") as f:
     corpus = json.load(f)
+
 
 docs = [item["text"] for item in corpus]
 

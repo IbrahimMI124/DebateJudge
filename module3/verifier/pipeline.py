@@ -1,5 +1,5 @@
-from verifier.retriever import retrieve
-from verifier.judge import judge_claim
+from .retriever import retrieve
+from .judge import judge_claim
 
 def run_verification(claim):
     query = claim["text"]

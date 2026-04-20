@@ -38,7 +38,7 @@ torch.load = _patched_torch_load
 
 # ── EDIT THESE ──────────────────────────────────────────────────────────────────
 VIDEO_URL   = "https://www.youtube.com/watch?v=3O6hR8Chsrk"
-HF_TOKEN    = "REMOVED_TOKEN"
+HF_TOKEN    = "HF_TOKEN"
 
 OUTPUT_FILE    = "transcript_labeled.txt"
 AUDIO_FILE     = "debate_audio.mp3"
