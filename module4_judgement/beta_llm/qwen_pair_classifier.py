@@ -22,6 +22,12 @@ ALLOWED_LABELS = {
     "clarifies",
 }
 
+# ALLOWED_LABELS = {
+#     "rebuttal",
+#     "agreement",
+#     "unrelated"
+# }
+
 # Test-phase constant scores per label.
 # (You said you'll move to configured weights later.)
 LABEL_SCORES: dict[str, float] = {
@@ -36,6 +42,11 @@ LABEL_SCORES: dict[str, float] = {
     "clarifies": 0.0,
 }
 
+# LABEL_SCORES: dict[str, float] = {
+#     "rebuttal" : -1.0,
+#     "agreement" : 1.0,
+#     "unrelated" : 0.0
+# }
 
 def score_for_label(label: str) -> float:
     return float(LABEL_SCORES.get((label or "").strip().lower(), 0.0))
@@ -105,7 +116,8 @@ def _normalize_result(obj: Any) -> Dict[str, Any]:
 class QwenLocalConfig:
     model_name: str = "Qwen/Qwen2.5-7B-Instruct"
     cache_dir: Optional[str] = None
-    max_new_tokens: int = 160
+    max_new_tokens: int = 50  # Reduced for faster inference
+    max_input_tokens: int = 4096
     device_map: Optional[str] = None
 
 
@@ -118,12 +130,14 @@ def _get_cfg() -> QwenLocalConfig:
     model_name = (os.getenv("DEBATEJUDGE_QWEN_MODEL") or "Qwen/Qwen2.5-7B-Instruct").strip()
     cache_dir = (os.getenv("DEBATEJUDGE_HF_CACHE_DIR") or "").strip() or None
     max_new_tokens = int(os.getenv("DEBATEJUDGE_QWEN_MAX_NEW_TOKENS") or "160")
+    max_input_tokens = int(os.getenv("DEBATEJUDGE_QWEN_MAX_INPUT_TOKENS") or "4096")
     device_map = (os.getenv("DEBATEJUDGE_QWEN_DEVICE_MAP") or "").strip()
     device_map_opt = device_map if device_map else None
     return QwenLocalConfig(
         model_name=model_name,
         cache_dir=cache_dir,
         max_new_tokens=max_new_tokens,
+        max_input_tokens=max_input_tokens,
         device_map=device_map_opt,
     )
 
@@ -210,34 +224,67 @@ def classify_argument_relation(statement_a: str, statement_b: str) -> Dict[str, 
                 pass
         return {"label": "clarifies", "confidence": 0.0, "rationale": reason}
 
+    # Defensive: upstream pipeline may pass non-string values (None, numbers, etc.).
+    # The tokenizer will throw a TypeError for those.
+    statement_a = str(statement_a or "")
+    statement_b = str(statement_b or "")
+
+    # If either side is empty, the relation is undefined; avoid calling the model.
+    if not statement_a.strip() or not statement_b.strip():
+        return {"label": "clarifies", "confidence": 0.0, "rationale": "empty_input"}
+
     prompt = build_argument_relation_prompt(statement_a, statement_b)
 
-    # Prefer chat template if available.
-    messages = [
-        {"role": "system", "content": "You are an expert argumentation analyst."},
-        {"role": "user", "content": prompt},
-    ]
-
+    # Set pad token if not already set
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+    
+    # Tokenize with attention mask
     try:
-        input_ids = tokenizer.apply_chat_template(messages, tokenize=True, add_generation_prompt=True, return_tensors="pt")
-    except Exception:
-        input_ids = tokenizer(prompt, return_tensors="pt").input_ids
+        max_len = int(getattr(tokenizer, "model_max_length", cfg.max_input_tokens) or cfg.max_input_tokens)
+        # Some tokenizers set model_max_length to a sentinel huge int; we still cap.
+        max_len = max(32, min(max_len, int(cfg.max_input_tokens)))
+
+        encoded = tokenizer(
+            prompt,
+            return_tensors="pt",
+            padding=True,
+            truncation=True,
+            max_length=max_len,
+        )
+        input_ids = encoded["input_ids"]
+        attention_mask = encoded.get("attention_mask", None)
+    except Exception as e:
+        msg = str(e).strip().replace("\n", " ")
+        if len(msg) > 160:
+            msg = msg[:160] + "..."
+        return {
+            "label": "clarifies",
+            "confidence": 0.0,
+            "rationale": f"tokenize_error:{e.__class__.__name__}:{msg}" if msg else f"tokenize_error:{e.__class__.__name__}",
+        }
 
     try:
         # Move inputs to model device (works for both CPU and device_map).
         input_ids = input_ids.to(model.device)
+        if attention_mask is not None:
+            attention_mask = attention_mask.to(model.device)
     except Exception:
         pass
 
     try:
+        # Most basic generation call to avoid parameter issues
+        # Use num_beams=1 for greedy decoding (fastest)
         gen = model.generate(
             input_ids,
             max_new_tokens=cfg.max_new_tokens,
-            do_sample=False,
-            temperature=0.0,
+            attention_mask=attention_mask,
+            pad_token_id=tokenizer.pad_token_id,
+            num_beams=1,
         )
-    except Exception:
-        return {"label": "clarifies", "confidence": 0.0, "rationale": "generation_error"}
+    except Exception as e:
+        err_msg = str(e)[:40] if str(e) else "unknown_error"
+        return {"label": "clarifies", "confidence": 0.0, "rationale": f"gen_error: {err_msg}"}
 
     # Decode only the newly generated portion when possible.
     try:
@@ -248,6 +295,11 @@ def classify_argument_relation(statement_a: str, statement_b: str) -> Dict[str, 
 
     json_str = _extract_first_json_object(text)
     if not json_str:
+        if (os.getenv("DEBATEJUDGE_QWEN_DEBUG") or "").strip() == "1":
+            snippet = (text or "").strip().replace("\n", " ")
+            if len(snippet) > 120:
+                snippet = snippet[:120] + "..."
+            return {"label": "clarifies", "confidence": 0.0, "rationale": f"no_json:{snippet}"}
         return {"label": "clarifies", "confidence": 0.0, "rationale": "no_json"}
 
     try:
