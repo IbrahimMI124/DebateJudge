@@ -23,7 +23,7 @@ ALLOWED_LABELS = {
 }
 
 # Test-phase constant scores per label.
-# (You said you'll move to configured weights later.)
+# (Planned: move to configured weights later.)
 LABEL_SCORES: dict[str, float] = {
     "supports": 1.0,
     "evidence_for": 1.0,

@@ -2,6 +2,8 @@
 
 This module implements the Module 4 Debate Judgement Engine.
 
+For a detailed write-up of the pipeline, scoring rationale, limitations, and future work, see `module4_judgement/MODULE4.md`.
+
 ## Where the “result” is
 The judgement output is the return value of:
 
@@ -24,11 +26,11 @@ To switch to the beta local-Qwen pair classifier (rich labels mapped back into 3
 - Env var: `DEBATEJUDGE_NLI_BACKEND=qwen`
 - JSON config: `{ "nli": { "backend": "qwen" } }`
 
-Important: your system `/usr/bin/python3` may not have ML deps installed.
-Use your conda `python` (the one that already runs MNLI) or install deps into system Python.
+Important: the system interpreter `/usr/bin/python3` may not have ML dependencies installed.
+Use a conda `python` that has the dependencies (e.g., the one already running MNLI), or install them into system Python.
 
 ### Smoke test (Qwen)
-If you already downloaded Qwen2.5 locally, point `DEBATEJUDGE_QWEN_MODEL` to the local folder.
+If Qwen2.5 is already available locally, set `DEBATEJUDGE_QWEN_MODEL` to the local folder.
 
 ```bash
 cd "/home/mohammed-ibrahim/Downloads/Work/Sem 6/NLPDL/DebateJudge"
@@ -75,7 +77,7 @@ DEBATEJUDGE_LIGHTWEIGHT=1 python -m module4_judgement.debug_run --topic "Urban t
 DEBATEJUDGE_LIGHTWEIGHT=1 python -m module4_judgement.debug_run --topic "Urban transport policy" --lightweight --normalize
 ```
 
-You can also pass a JSON file:
+A JSON file may also be provided:
 
 ```json
 {
