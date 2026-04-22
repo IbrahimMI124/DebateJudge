@@ -145,9 +145,6 @@ FAISS powers fast similarity search over embeddings.
 - Extremely fast retrieval
 - Scales well to large corpora
 - Lightweight local setup
-- Widely trusted in industry
-- Easy Python integration
-
 ---
 
 ## Structured Ranking Logic
@@ -191,9 +188,6 @@ The judge uses a local Ollama model: **phi3**.
 - Strong reasoning ability
 - Fast response time
 - No external API dependency
-- Cost effective
-- Better privacy for local systems
-
 ---
 
 ## Prompt Design Principles
@@ -268,16 +262,6 @@ Each entry contains:
 
 ---
 
-## Strengths
-
-- Accurate claim checking
-- Explainable evidence-backed verdicts
-- Strong integration with Module 2
-- Fast local execution
-- Robust failure handling
-
----
-
 ## Limitations
 
 - Manual ranking weights
@@ -290,9 +274,7 @@ Each entry contains:
 
 ## Future Improvements
 
-- Cross-encoder reranking
 - Multi-source verification
-- Confidence calibration
 - Better temporal reasoning
 - Automated corpus refresh pipeline
 
