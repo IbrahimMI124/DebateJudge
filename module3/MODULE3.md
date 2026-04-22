@@ -1,4 +1,4 @@
-# Module 3 — RAG-Based Factual Verification Engine (`module3`)
+# Module 3 — RAG-Based Factual Verification Engine
 
 ## Overview
 
@@ -314,11 +314,4 @@ module3/
 
 ---
 
-## Final Summary
-
-Module 3 is the system's truth-checking engine.
-
-It combines retrieval, structured ranking, local reasoning, and evidence-backed scoring into one reliable pipeline.
-
-Most importantly, it uses **RAG** because factual verification should depend on evidence — not memory alone.
 
