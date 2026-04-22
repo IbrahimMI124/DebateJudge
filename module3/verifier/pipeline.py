@@ -4,7 +4,7 @@ from .judge import judge_claim
 def run_verification(claim):
     query = claim["text"]
 
-    evidence = retrieve(query)
+    evidence = retrieve(claim)
     result = judge_claim(query, evidence)
 
     result["evidence"] = evidence
