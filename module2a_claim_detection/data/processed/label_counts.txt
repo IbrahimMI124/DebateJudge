@@ -1,0 +1,7 @@
+Training set: 3481 rows
+  Claims (1):     1726
+  Non-claims (0): 1755
+
+Validation set: 615 rows
+  Claims (1):     322
+  Non-claims (0): 293

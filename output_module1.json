@@ -1,162 +1,277 @@
 [
     {
         "id": 1,
-        "speaker": "B",
-        "text": "Yeah, I feel like the the burden's on you to prove"
+        "speaker": "A",
+        "text": "Um Uh that Yeah, where do you want to start?"
     },
     {
         "id": 2,
         "speaker": "B",
-        "text": "Okay, so I mean, numbers-wise, Messi is the best."
+        "text": "Yeah, I feel like the the burden's on you to prove"
     },
     {
         "id": 3,
-        "speaker": "B",
-        "text": "But I have Trying to think about trophy count."
+        "speaker": "A",
+        "text": "No, no, no, no, no."
     },
     {
         "id": 4,
         "speaker": "B",
-        "text": "I'm not sure actually either of them have the most trophies ever."
+        "text": "This is going to be fun."
     },
     {
         "id": 5,
         "speaker": "B",
-        "text": "Messi just as a footballer, in terms of his all-round game, in terms of what he could do on the pitch, I think there's there's no one who even comes close to him."
+        "text": "Okay, so uh I mean, numbers-wise, Messi is the best."
     },
     {
         "id": 6,
         "speaker": "B",
-        "text": "I think Ronaldo is closer to second."
+        "text": "I don't know about trophies."
     },
     {
         "id": 7,
         "speaker": "B",
-        "text": "I mean, it's even arguable whether Ronaldo is the second best player of all time."
+        "text": "But I have Trying to think about trophy count."
     },
     {
         "id": 8,
         "speaker": "B",
-        "text": "I mean, I don't I don't really know where to start."
+        "text": "I'm not sure actually either of them have the most trophies ever."
     },
     {
         "id": 9,
         "speaker": "B",
-        "text": "I feel for me, Messi's is just like not even debatable and probably hasn't been debatable since maybe 2014, 2015 as to him being the greatest of all time."
+        "text": "Messi just as a footballer, in terms of his all-round game, in terms of what he could do on the pitch, I think there's there's no one who even comes close to him."
     },
     {
         "id": 10,
         "speaker": "B",
-        "text": "like Lamine Yamal, I think could get to his level."
+        "text": "I think Ronaldo is closer to second."
     },
     {
         "id": 11,
         "speaker": "B",
-        "text": "probably has some past his level at his age at least."
+        "text": "I mean, it's even arguable whether Ronaldo is the second best player of all time."
     },
     {
         "id": 12,
         "speaker": "B",
-        "text": "I don't I just don't see where the debate is."
+        "text": "Um we can get onto that."
     },
     {
         "id": 13,
-        "speaker": "A",
-        "text": "Most goals ever scored, most international goals, most goals in the Champions League, most goals in the semifinals, most goals in the finals."
+        "speaker": "B",
+        "text": "Uh yeah, I mean, I don't I don't really know where to start."
     },
     {
         "id": 14,
-        "speaker": "A",
-        "text": "Won leagues in three different countries, major leagues being the best player every single time."
+        "speaker": "B",
+        "text": "I feel for me, Messi's is just like not even debatable and probably hasn't been debatable since maybe 2014, 2015 as to him being the greatest of all time."
     },
     {
         "id": 15,
-        "speaker": "A",
-        "text": "Messi's only won it in one pretty much most most of his career in one team, playing in one style of football, one environment, from literally from the age of 11 all the way up to first team."
+        "speaker": "B",
+        "text": "Uh like Lamine Yamal, I think could get to his level."
     },
     {
         "id": 16,
-        "speaker": "A",
-        "text": "Whereas Ronaldo, different systems, different leagues, different players."
+        "speaker": "B",
+        "text": "Um probably has some past his level at his age at least."
     },
     {
         "id": 17,
-        "speaker": "A",
-        "text": "Messi's pretty much played in the same style of football."
+        "speaker": "B",
+        "text": "But otherwise, yeah,"
     },
     {
         "id": 18,
-        "speaker": "A",
-        "text": "We talk about philosophies, pretty much the same philosophy, same even the same group of players up until the age till he pretty much left Barcelona."
+        "speaker": "B",
+        "text": "I don't I just don't see where the debate is."
     },
     {
         "id": 19,
         "speaker": "A",
-        "text": "Whereas you got Ronaldo playing with different players, different managers, different styles."
+        "text": "Most goals ever scored, most international goals, most goals in the Champions League, most goals in the semifinals, most goals in the finals."
     },
     {
         "id": 20,
         "speaker": "A",
-        "text": "You could say that Messi needed an environment."
+        "text": "Won leagues in three different countries, major leagues being the best player every single time."
     },
     {
         "id": 21,
         "speaker": "A",
-        "text": "There's an argument to say that Messi had to play in a certain environment to thrive, to get his potential."
+        "text": "Messi's only won it in one pretty much most most of his career in one team, playing in one style of football, one environment, from literally from the age of 11 all the way up to first team."
     },
     {
         "id": 22,
         "speaker": "A",
-        "text": "You can even bring it to Portugal."
+        "text": "Whereas Ronaldo, different systems, different leagues, different players."
     },
     {
         "id": 23,
         "speaker": "A",
-        "text": "Before Ronaldo, Portugal were happy to be a country in every major tournament that they went to, if they even qualified."
+        "text": "Messi's pretty much played in the same style of football."
     },
     {
         "id": 24,
-        "speaker": "B",
-        "text": "I mean, I'm talking about in terms of what they won."
+        "speaker": "A",
+        "text": "We talk about philosophies, pretty much the same philosophy, same even the same group of players up until the age till he pretty much left Barcelona."
     },
     {
         "id": 25,
         "speaker": "A",
-        "text": "But my my point is that my point is that Portugal was never a competitive nation before Ronaldo."
+        "text": "Whereas you got Ronaldo playing with different players, different managers, different styles."
     },
     {
         "id": 26,
         "speaker": "A",
-        "text": "I mean, They they struggled to even qualify for major tournaments before Ronaldo."
+        "text": "He's even changed his game."
     },
     {
         "id": 27,
-        "speaker": "B",
-        "text": "I wouldn't say that Ronaldo was the defining factor in Euro 2004."
+        "speaker": "A",
+        "text": "He's a reinvented himself multiple times."
     },
     {
         "id": 28,
         "speaker": "A",
-        "text": "But I would say that he's definitely a factor."
+        "text": "You could say that Messi needed an environment."
     },
     {
         "id": 29,
         "speaker": "A",
-        "text": "He's definitely the reason as to all the successes that they've had."
+        "text": "There's an argument to say that Messi had to play in a certain environment to thrive, to get his potential."
     },
     {
         "id": 30,
         "speaker": "A",
-        "text": "Not qualifying for international tournaments, struggling to qualify for the international tournaments, to then being a one of argue a competitive nation with Ronaldo."
+        "text": "Ronaldo for me is the environment."
     },
     {
         "id": 31,
         "speaker": "A",
-        "text": "And the only success they've ever had in their country is with Ronaldo being captain."
+        "text": "Everywhere he goes."
     },
     {
         "id": 32,
         "speaker": "A",
+        "text": "You talk about Portugal."
+    },
+    {
+        "id": 33,
+        "speaker": "A",
+        "text": "You can even bring it to Portugal."
+    },
+    {
+        "id": 34,
+        "speaker": "A",
+        "text": "Before Ronaldo, Portugal were happy to be a country in every major tournament that they went to, if they even qualified."
+    },
+    {
+        "id": 35,
+        "speaker": "A",
+        "text": "If they qualified, by the way."
+    },
+    {
+        "id": 36,
+        "speaker": "A",
+        "text": "I doubt they were that."
+    },
+    {
+        "id": 37,
+        "speaker": "A",
+        "text": "Well, you tell me what what made them that."
+    },
+    {
+        "id": 38,
+        "speaker": "B",
+        "text": "I mean, Ronaldo came into the came at the very tail end of the golden generation of Portugal, right?"
+    },
+    {
+        "id": 39,
+        "speaker": "B",
+        "text": "I mean, I'm talking about in terms of what they won."
+    },
+    {
+        "id": 40,
+        "speaker": "B",
+        "text": "I mean, they won they won"
+    },
+    {
+        "id": 41,
+        "speaker": "B",
+        "text": "Well, they won one they won one trophy in at Euro 2016."
+    },
+    {
+        "id": 42,
+        "speaker": "B",
+        "text": "Well, they didn't win anything, but they were a much, much better team at Euro 2004 than in Euro 2016, where they won what, like one game in normal time?"
+    },
+    {
+        "id": 43,
+        "speaker": "A",
+        "text": "But my my point is that my point is that Portugal was never a competitive nation before Ronaldo."
+    },
+    {
+        "id": 44,
+        "speaker": "A",
+        "text": "I mean, They they struggled to even qualify for major tournaments before Ronaldo."
+    },
+    {
+        "id": 45,
+        "speaker": "B",
+        "text": "I wouldn't say that Ronaldo was the defining factor in Euro 2004."
+    },
+    {
+        "id": 46,
+        "speaker": "A",
+        "text": "But I would say that he's definitely a factor."
+    },
+    {
+        "id": 47,
+        "speaker": "A",
+        "text": "He's definitely the reason as to all the successes that they've had."
+    },
+    {
+        "id": 48,
+        "speaker": "A",
+        "text": "He's a big part of that."
+    },
+    {
+        "id": 49,
+        "speaker": "A",
+        "text": "They never had They never qualified."
+    },
+    {
+        "id": 50,
+        "speaker": "A",
+        "text": "They weren't qualified."
+    },
+    {
+        "id": 51,
+        "speaker": "A",
+        "text": "There's a difference, though."
+    },
+    {
+        "id": 52,
+        "speaker": "A",
+        "text": "Not qualifying for international tournaments, struggling to qualify for the international tournaments, to then being a one of argue a competitive nation with Ronaldo."
+    },
+    {
+        "id": 53,
+        "speaker": "A",
+        "text": "And the only success they've ever had in their country is with Ronaldo being captain."
+    },
+    {
+        "id": 54,
+        "speaker": "A",
         "text": "And he's the most international goals, by the way."
+    },
+    {
+        "id": 55,
+        "speaker": "B",
+        "text": "Yeah, I mean, so aside from international goals and playing for playing in different countries, what has Ronaldo got going for him that Messi doesn't?"
     }
 ]

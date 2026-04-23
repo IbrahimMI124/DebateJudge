@@ -1,77 +1,61 @@
 import re
 import json
 import spacy
- 
+
 nlp = spacy.load("en_core_web_sm")
+#optionally upgrade to en_core_web_trf
 
-NON_ARG_PATTERNS = [
-    r"^(thank you|thanks|hello|hi\b|good (morning|evening|afternoon))",
-    r"^(that'?s? (a )?(great|good|fair|interesting|valid) point)",
-    r"^(you'?re? (absolutely|completely|totally) right)",
-    r"^(moving on|anyway|so,|well,|okay so|alright)",
-    r"^(ladies and gentlemen|welcome (to|back))",
-    r"^(let'?s? (begin|start|get started|move on))",
-    r"^(as i (said|mentioned|stated) (earlier|before|previously))",
-    r"^(i (think|believe|feel) (that )?we (can all )?agree)",
-]
- 
-# Phrases that signal a real argument even if they start with "I"
-# (opinions and concessions must be preserved for Member 2)
-KEEP_OVERRIDES = [
-    r"^i (admit|concede|grant|acknowledge)",   # concessions
-    r"^i (believe|think|feel|argue|maintain|claim|contend)",  # opinions
-    r"^honestly,",
-    r"^frankly,",
-    r"^let'?s? be real",
-    r"^you (said|claimed|stated|argued)",      # contradicts
-    r"^if (messi|ronaldo|he|she|they|we)",     # hypotheticals
-    r"^had ",                                  # hypotheticals ("Had Ronaldo stayed...")
-    r"^sure,",                                 # concessions
-    r"^okay,? i'?ll grant",                   # concessions
-]
+# ──────────────────────────────────────────────────────────────────────────────
+# NOTE: Argumentative filtering has been intentionally removed from Module 1.
+#
+# Previously, NON_ARG_PATTERNS / KEEP_OVERRIDES / is_argumentative() lived here.
+# That logic was brittle (regex-based) and caused valid claims to be dropped
+# before Module 2 ever saw them.
+#
+# Module 1's only job now is: parse → clean → split into sentences → pass on.
+# The binary claim detector in Module 2 (Step 2A) is responsible for deciding
+# what is and isn't a claim, using a proper trained classifier.
+# ──────────────────────────────────────────────────────────────────────────────
 
-def is_argumentative(sentence: str) -> bool:
-    s = sentence.lower().strip()
- 
-    # Too short to be meaningful
-    if len(s.split()) < 7:
-        return False
- 
-    # Check keep overrides first — these are always arguments
-    for pattern in KEEP_OVERRIDES:
-        if re.search(pattern, s):
-            return True
- 
-    # Check non-argument patterns
-    for pattern in NON_ARG_PATTERNS:
-        if re.search(pattern, s):
-            return False
- 
-    # Pure questions are usually not claims (rhetorical questions are edge cases)
-    # Only discard if the ENTIRE sentence is a question
-    if s.endswith("?") and not any(
-        kw in s for kw in ["more", "less", "better", "worse", "higher", "lower", "greater"]
-    ):
-        return False
- 
-    return True
+MIN_TOKEN_LENGTH = 3  # Drop only truly empty/trivial fragments (1-2 words)
+                      # This is NOT argumentative filtering — just noise removal.
+
+
+def is_trivial(text: str) -> bool:
+    """
+    Drop only fragments that carry zero information regardless of context:
+      - Single words or very short interjections ("Yeah.", "Okay.", "Hmm.")
+      - Completely empty strings after cleaning
+
+    This is intentionally very permissive. A sentence like "That's wrong."
+    is only 2 tokens but could be a valid rebuttal — we still keep it.
+    We only drop things that are genuinely empty noise.
+    """
+    tokens = text.split()
+    if len(tokens) < MIN_TOKEN_LENGTH:
+        return True
+    return False
+
 
 def clean_text(text: str) -> str:
+    """
+    Light preprocessing only — removes timestamps and normalizes whitespace.
+    Does NOT remove filler words (um, uh, like) because:
+      - Filler removal can corrupt sentence boundaries for spaCy
+      - The binary classifier in Module 2 is robust to informal speech
+    """
     # Remove timestamps like [00:01:23] or (00:01)
     text = re.sub(r'\[[\d:]+\]', '', text)
     text = re.sub(r'\([\d:]+\)', '', text)
- 
-    # Remove filler words (only standalone, not inside words)
-    fillers = r'\b(um+|uh+|er+|ah+|hmm+|you know|like,|so,|i mean,)\b'
-    text = re.sub(fillers, '', text, flags=re.IGNORECASE)
- 
+
     # Normalize whitespace
     text = re.sub(r'\s+', ' ', text).strip()
- 
+
     # Fix spacing around punctuation
     text = re.sub(r'\s([?.!,])', r'\1', text)
- 
+
     return text
+
 
 def normalize_speakers(turns: list) -> list:
     """
@@ -80,7 +64,7 @@ def normalize_speakers(turns: list) -> list:
     """
     speaker_map = {}
     labels = iter("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
- 
+
     normalized = []
     for turn in turns:
         speaker = turn["speaker"].strip()
@@ -90,8 +74,9 @@ def normalize_speakers(turns: list) -> list:
             "speaker": speaker_map[speaker],
             "text": turn["text"]
         })
- 
+
     return normalized
+
 
 def parse_plain_text(transcript: str) -> list:
     """
@@ -106,19 +91,20 @@ def parse_plain_text(transcript: str) -> list:
         line = line.strip()
         if not line:
             continue
- 
+
         # Strip leading timestamps
         line = re.sub(r'^\[[\d:]+\]\s*', '', line)
         line = re.sub(r'^\([\d:]+\)\s*', '', line)
- 
+
         # Match "Speaker: text" — speaker can be a letter, name, or name with spaces
         match = re.match(r'^([A-Za-z][A-Za-z\s]{0,30}?):\s+(.+)', line)
         if match:
             speaker = match.group(1).strip()
             text    = match.group(2).strip()
             turns.append({"speaker": speaker, "text": text})
- 
+
     return turns
+
 
 def parse_json_input(data: dict) -> tuple:
     """
@@ -135,44 +121,48 @@ def parse_json_input(data: dict) -> tuple:
     turns = data.get("turns", [])
     return topic, turns
 
+
 def process(topic: str, turns: list) -> dict:
     """
     Takes topic string and list of {speaker, text} turns.
-    Returns structured JSON ready for Member 2.
+    Returns structured JSON ready for Module 2.
+
+    Every sentence that isn't trivially empty is passed through.
+    Claim detection is Module 2's responsibility.
     """
-    # Normalize speaker names to A, B, C...
     turns = normalize_speakers(turns)
- 
+
     statements = []
     counter = 1
- 
+
     for turn in turns:
         speaker = turn["speaker"]
         cleaned = clean_text(turn["text"])
- 
-        # Use spaCy to split into individual sentences
+
         doc = nlp(cleaned)
- 
+
         for sent in doc.sents:
             text = sent.text.strip()
- 
-            if is_argumentative(text):
+
+            # Only drop genuinely empty/trivial fragments
+            if not is_trivial(text):
                 statements.append({
                     "id":      counter,
                     "speaker": speaker,
                     "text":    text
                 })
                 counter += 1
- 
+
     return {
         "topic":      topic,
         "statements": statements
     }
 
+
 def run_from_text(topic: str, transcript: str) -> dict:
     """
     Use when input is a plain text transcript string.
- 
+
     Example:
         topic = "Messi vs Ronaldo: Who is the GOAT?"
         transcript = '''
@@ -182,12 +172,12 @@ def run_from_text(topic: str, transcript: str) -> dict:
     """
     turns = parse_plain_text(transcript)
     return process(topic, turns)
- 
- 
+
+
 def run_from_json(data: dict) -> dict:
     """
     Use when input is already a structured JSON dict.
- 
+
     Example:
         data = {
             "topic": "Messi vs Ronaldo: Who is the GOAT?",
@@ -200,6 +190,7 @@ def run_from_json(data: dict) -> dict:
     topic, turns = parse_json_input(data)
     return process(topic, turns)
 
+
 if __name__ == "__main__":
     import argparse
 
@@ -209,17 +200,15 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    # Read transcript file
     with open(args.input, "r", encoding="utf-8") as f:
         transcript = f.read()
 
-    # Run pipeline
     result = run_from_text(args.topic, transcript)
 
-    # Print JSON output
     print(json.dumps(result, indent=2))
 
-    # Stats
-    print(f"\n✅ Total argumentative statements extracted: {len(result['statements'])}")
+    print(f"\n✅ Total statements extracted: {len(result['statements'])}")
     print(f"   Speaker A: {sum(1 for s in result['statements'] if s['speaker'] == 'A')}")
     print(f"   Speaker B: {sum(1 for s in result['statements'] if s['speaker'] == 'B')}")
+    print(f"\n   NOTE: All non-trivial sentences are passed through.")
+    print(f"   Claim detection happens in Module 2 (Step 2A).")

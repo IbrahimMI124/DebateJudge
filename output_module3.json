@@ -1,165 +1,9 @@
 [
     {
-        "factual_score": 1.0,
-        "confidence": 1.0,
+        "factual_score": 0.85,
+        "confidence": 0.95,
         "verdict": "supported",
-        "reason": "The evidence directly supports the claim that Erling Haaland is highly decorated in Premier League history by mentioning his achievement of winning both the Young Player and Player of the Season awards within the same season.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Haaland",
-                "topic": "records",
-                "text": "Erling Haaland is the only player to win Premier League Young Player and Player of the Season in the same season."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "records",
-                "text": "Lionel Messi is the most decorated player in professional football history with 46 team trophies."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "la_liga",
-                "text": "Lionel Messi is the all-time top scorer in La Liga with 474 goals."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "records",
-                "text": "Cristiano Ronaldo is the only player to score 100 goals with four different clubs."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Haaland",
-                "topic": "records",
-                "text": "Erling Haaland is the quickest player to score eight Premier League hat-tricks."
-            }
-        ],
-        "id": 1
-    },
-    {
-        "factual_score": 0.95,
-        "confidence": 0.0,
-        "verdict": "supported",
-        "reason": "Evidence shows Lionel Messi has an unparalleled number of goals in his career and a record for most calendar year goals. His Ballon d'Or wins, while not exclusively based on scoring, do reflect recognition as the best player overall which often includes consideration of goal contribution.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "career_stats",
-                "text": "Lionel Messi has over 1300 career goal contributions, the highest total in football history."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "records",
-                "text": "Lionel Messi is the most decorated player in professional football history with 46 team trophies."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "la_liga",
-                "text": "Lionel Messi is the all-time top scorer in La Liga with 474 goals."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "awards",
-                "text": "Lionel Messi has won eight Ballon d'Or awards, the most in football history."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "records",
-                "text": "Lionel Messi holds the record for most goals in a calendar year with 91 goals."
-            }
-        ],
-        "id": 2
-    },
-    {
-        "factual_score": 0.5,
-        "confidence": 0.3,
-        "verdict": "uncertain",
-        "reason": "Parser fallback: ```json {   \"factual_score\": 0.8,   \"confidence\": 0 endorse this claim as Lionel Messi is indeed highly decorated and has contributed significantly to his teams in terms of trophies won during the years he played with th",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "career_stats",
-                "text": "Lionel Messi has over 1300 career goal contributions, the highest total in football history."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "records",
-                "text": "Lionel Messi is the most decorated player in professional football history with 46 team trophies."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "awards",
-                "text": "Lionel Messi has won eight Ballon d'Or awards, the most in football history."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "records",
-                "text": "Lionel Messi holds the record for most goals in a calendar year with 91 goals."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Neuer",
-                "topic": "awards",
-                "text": "Manuel Neuer won the Best European Goalkeeper award a record five times."
-            }
-        ],
-        "id": 3
-    },
-    {
-        "factual_score": 0.75,
-        "confidence": 0.9,
-        "verdict": "uncertain",
-        "reason": "The evidence shows Messi has more trophies than Ronaldo and Neuer with Barcelona but does not provide enough information to compare the total number of individual team-related trophies won by all players.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "records",
-                "text": "Lionel Messi is the most decorated player in professional football history with 46 team trophies."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "awards",
-                "text": "Lionel Messi has won eight Ballon d'Or awards, the most in football history."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "trophies",
-                "text": "Cristiano Ronaldo has won 34 career trophies."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Neuer",
-                "topic": "trophies",
-                "text": "Manuel Neuer has won 31 trophies with Bayern Munich."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "barcelona",
-                "text": "Lionel Messi won 34 trophies with Barcelona, including ten La Liga titles and four UEFA Champions League titles."
-            }
-        ],
-        "id": 4
-    },
-    {
-        "factual_score": 1.0,
-        "confidence": 1.0,
-        "verdict": "supported",
-        "reason": "The evidence provided supports the claim as it highlights Messi's numerous team trophies and individual award recognitions that underscore his exceptional performance on the pitch.",
+        "reason": "The claim is supported by Lionel Messi's numerous accolades and contributions to football such as being the most decorated player in professional football history with a record number of team trophies (46), winning eight Ballon d'Or awards, which are unparalleled records. While individual opinions may vary on who is considered 'the best', Messi's all-around achievements strongly substantiate the claim made.",
         "evidence": [
             {
                 "source": "Wikipedia",
@@ -192,13 +36,13 @@
                 "text": "Lionel Messi is the all-time top scorer in La Liga with 474 goals."
             }
         ],
-        "id": 5
+        "id": 9
     },
     {
         "factual_score": 0.5,
         "confidence": 0.3,
         "verdict": "uncertain",
-        "reason": "Parser fallback: Ollama error: POST predict: Post \"http://127.0.0.1:53126/completion\": read tcp 127.0.0.1:64471->127.0.0.1:53126: wsarecv: An existing connection was forcibly closed by the remote host. (status code: 500)",
+        "reason": "```json\n\n{\n\n  \"factual_score\": 0.8,\n\n  \"confidence\": 0.95,\n\n  \"verdict\": \"supported\",\n\n  \"reason\": \"The claim that Cristiano Ronaldo is closer to second in terms of his achievements and record holds some merit when considering the evidence provided: leading Real Madrid's goalscorer list with over 400 career goals, achieving a milestone at Euro 2016 for Portugal, being part of multiple clubs where he scored 100+ goals each time.\"\n\n}\n\n```",
         "evidence": [
             {
                 "source": "Wikipedia",
@@ -229,162 +73,6 @@
                 "entity": "Ronaldo",
                 "topic": "international",
                 "text": "Cristiano Ronaldo is the most-capped male player in international football with over 226 appearances."
-            }
-        ],
-        "id": 6
-    },
-    {
-        "factual_score": 0.7,
-        "confidence": 0.8,
-        "verdict": "supported",
-        "reason": "The evidence strongly supports Ronaldo's achievements and reputation as a top player by showcasing his numerous awards, records in international football appearances, scorers for both clubs he played at (Real Madrid) and the national team of Portugal. However, determining if someone is 'the second best' involves subjective comparison with other players who may also have significant achievements.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "career_stats",
-                "text": "Cristiano Ronaldo has made over 1300 professional career appearances, the most by an outfield player."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "international",
-                "text": "Cristiano Ronaldo is the most-capped male player in international football with over 226 appearances."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "awards",
-                "text": "Cristiano Ronaldo has won a record three UEFA Men's Player of the Year Awards."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "international",
-                "text": "Cristiano Ronaldo is the all-time top scorer in men's international football with 143 goals."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "legacy",
-                "text": "Cristiano Ronaldo is widely regarded as one of the greatest football players in history."
-            }
-        ],
-        "id": 7
-    },
-    {
-        "factual_score": 0.8,
-        "confidence": 0.9,
-        "verdict": "supported",
-        "reason": "The evidence provided shows Lionel Messi's accomplishments and his leading role in notable football events such as the FIFA World Cup.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "records",
-                "text": "Lionel Messi is the most decorated player in professional football history with 46 team trophies."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Mbappe",
-                "topic": "transfer",
-                "text": "Kylian Mbappe joined Paris Saint-Germain in a transfer worth \u20ac180 million, becoming the most expensive teenage player at the time."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "world_cup",
-                "text": "Lionel Messi led Argentina to victory in the 2022 FIFA World Cup."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "inter_miami",
-                "text": "Lionel Messi joined Inter Miami in 2023 and led the club to its first MLS Cup victory in 2025."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "international",
-                "text": "Cristiano Ronaldo led Portugal to their first major title at UEFA Euro 2016."
-            }
-        ],
-        "id": 8
-    },
-    {
-        "factual_score": 1.0,
-        "confidence": 0.95,
-        "verdict": "supported",
-        "reason": "The evidence strongly supports the claim of Lionel Messi's uncontested status in football history with numerous records and awards.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "records",
-                "text": "Lionel Messi is the most decorated player in professional football history with 46 team trophies."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "career_stats",
-                "text": "Lionel Messi has over 1300 career goal contributions, the highest total in football history."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "legacy",
-                "text": "Lionel Messi is widely regarded as one of the greatest football players in history."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "awards",
-                "text": "Lionel Messi has won eight Ballon d'Or awards, the most in football history."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "career_stats",
-                "text": "Lionel Messi has provided over 400 assists for club and country."
-            }
-        ],
-        "id": 9
-    },
-    {
-        "factual_score": 0.5,
-        "confidence": 0.75,
-        "verdict": "uncertain",
-        "reason": "The claim about a person possibly reaching Lamine Yamal's level is subjective and lacks specific context or comparison regarding skill set.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "la_liga",
-                "text": "Lionel Messi is the all-time top scorer in La Liga with 474 goals."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Haaland",
-                "topic": "records",
-                "text": "Erling Haaland is the quickest player to score eight Premier League hat-tricks."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Haaland",
-                "topic": "records",
-                "text": "Erling Haaland is the only player to win Premier League Young Player and Player of the Season in the same season."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Neuer",
-                "topic": "international",
-                "text": "Manuel Neuer is among the most-capped German international players."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Buffon",
-                "topic": "international",
-                "text": "Gianluigi Buffon is Italy's most capped player."
             }
         ],
         "id": 10
@@ -393,124 +81,7 @@
         "factual_score": 0.5,
         "confidence": 0.3,
         "verdict": "uncertain",
-        "reason": "Parser fallback: ```json {   \"factual_score\": 0.8,   \"confidence\": 0neric: The claim implies that Neymar is not at his level because he has fewer goal scores compared to Cristiano Ronaldo or Lionel Messi. However, the evidence provided s",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Neymar",
-                "topic": "legacy",
-                "text": "Neymar is widely regarded as one of the greatest football players of his generation."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Neymar",
-                "topic": "career_stats",
-                "text": "Neymar has scored over 400 senior career goals."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "career_stats",
-                "text": "Lionel Messi has scored over 900 senior career goals."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Neymar",
-                "topic": "career_stats",
-                "text": "Neymar has registered over 250 assists for club and country."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "career_stats",
-                "text": "Cristiano Ronaldo has scored over 960 official senior career goals for club and country."
-            }
-        ],
-        "id": 11
-    },
-    {
-        "factual_score": 0.5,
-        "confidence": 0.7,
-        "verdict": "opinion",
-        "reason": "The claim is a subjective expression of confusion about football debates and does not present verifiable facts; it seems to reference Buffon's absence from Champions League victory despite his other accolades.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Buffon",
-                "topic": "ucl",
-                "text": "Gianluigi Buffon did not win the UEFA Champions League."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Buffon",
-                "topic": "world_cup",
-                "text": "Gianluigi Buffon won the FIFA World Cup with Italy in 2006."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "world_cup",
-                "text": "Lionel Messi led Argentina to victory in the 2022 FIFA World Cup."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldinho",
-                "topic": "records",
-                "text": "Ronaldinho is the only player to win a World Cup, Copa America, Confederations Cup, Champions League, Copa Libertadores, and Ballon d'Or."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Neymar",
-                "topic": "context",
-                "text": "Neymar's career is often discussed in relation to injuries and competing during the Messi-Ronaldo era."
-            }
-        ],
-        "id": 12
-    },
-    {
-        "factual_score": 0.6,
-        "confidence": 0.0,
-        "verdict": "opinion",
-        "reason": "While it's true that Cristiano Ronaldo holds significant goal-scoring records in UEFA competitions and Erling Haaland has a remarkable Premier League record, the claim regarding 'most goals ever scored,' as well as specific high points like most international goals or top positions at semifinals/finals rankings are not substantiated by provided evidence.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "ucl",
-                "text": "Cristiano Ronaldo holds the record for most goals in the UEFA Champions League with 140 goals."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "euro",
-                "text": "Cristiano Ronaldo holds the record for most goals in the UEFA European Championship with 14 goals."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "ucl",
-                "text": "Cristiano Ronaldo holds the record for most assists in the UEFA Champions League with 42 assists."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Haaland",
-                "topic": "premier_league",
-                "text": "Erling Haaland holds the record for most goals by a Premier League player in all competitions in one season with 52 goals."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "records",
-                "text": "Lionel Messi holds the record for most goals in a calendar year with 91 goals."
-            }
-        ],
-        "id": 13
-    },
-    {
-        "factual_score": 0.9,
-        "confidence": 1.0,
-        "verdict": "supported",
-        "reason": "The claim is supported by evidence showing that Ronaldinho has won multiple prestigious international football competitions and awards.",
+        "reason": "\n```json\n\n{\n\n  \"factual_score\": 0.8,\n\n  \"confidence\": 0.95,\n\n  \"verdict\": \"supported\",\n\n  \"reason\": \"The claim is supported by the evidence as Zinedine Zidane has won titles in La Liga and UEFA Champions League with Real Madrid; Ronaldinho's FIFA World Player of the Year awards align well but he did not play for a major league team. Kylian Mbappe, although recognized highly, does not provide direct proof concerning victories.\"\n\n}\n\n```",
         "evidence": [
             {
                 "source": "Wikipedia",
@@ -543,13 +114,13 @@
                 "text": "Zinedine Zidane is widely regarded as one of the greatest football players of all time."
             }
         ],
-        "id": 14
+        "id": 20
     },
     {
-        "factual_score": 0.6,
-        "confidence": 0.75,
+        "factual_score": 0.5,
+        "confidence": 0.3,
         "verdict": "uncertain",
-        "reason": "The claim suggests Messi played his entire professional career (since age 11) in one team and style of football without switching teams or styles throughout the years, which contradicts historical evidence that he has won trophies with Paris Saint-Germain. However, due to lack of specific details about each victory within a single club across Messi's entire career (which could include multiple clubs), this claim cannot be entirely dismissed and remains partially supported.",
+        "reason": "{\n  \"factual_score\": 0.7,\n  \"confidence\": 0informative evidence provided supports that Lionel Messi has spent a significant portion of his professional club career with one team (Paris Saint-Germain) and is known for playing in the same style as he started from age 11. However, some ambiguity remains regarding whether this was true 'mostly' throughout or if there were brief periods when Messi might have played elsewhere based on incomplete information provided about his career transfers within France alone (e.g., no mention of a loan move to Barcelona which would indicate playing in another style). The Ballon d'Or awards and total goal contributions further emphasize consistency but don\u2019t explicitly speak to the team, club environment or age aspect mentioned in the claim directly. Thus, while there is substantial supporting evidence for certain aspects of his career being concentrated within one framework (team/club), it lacks complete clarity on whether this was 'pretty much most' throughout his whole professional journey without a mention about youth clubs other than Barcelona which he joined as an exception not the rule.\n  \"verdict\": \"uncertain\",\n  \"reason\": \"The evidence supports Messi spending significant time with Paris Saint-Germain and playing in similar styles of football, but it doesn't explicitly confirm whether this was 'pretty much most of his career'. Also missing is information about any transfers or different club environments he might have experienced.\"\n}",
         "evidence": [
             {
                 "source": "Wikipedia",
@@ -582,13 +153,13 @@
                 "text": "Lionel Messi is widely regarded as one of the greatest football players in history."
             }
         ],
-        "id": 15
+        "id": 21
     },
     {
-        "factual_score": 0.95,
-        "confidence": 0.95,
+        "factual_score": 0.8,
+        "confidence": 1.0,
         "verdict": "supported",
-        "reason": "The evidence provided clearly supports the claim as it states Cristiano Ronaldo has made over 1300 professional appearances (supporting his extensive career), scored goals for four different clubs totaling more than 960 senior career official goals, and is not only a top scorer but also holds records in international caps.",
+        "reason": "The evidence supports the claim about Cristiano Ronaldo scoring for different clubs and his significant career achievements with those teams.",
         "evidence": [
             {
                 "source": "Wikipedia",
@@ -619,483 +190,15 @@
                 "entity": "Ronaldo",
                 "topic": "international",
                 "text": "Cristiano Ronaldo is the most-capped male player in international football with over 226 appearances."
-            }
-        ],
-        "id": 16
-    },
-    {
-        "factual_score": 0.7,
-        "confidence": 0.85,
-        "verdict": "supported",
-        "reason": "Evidence shows Messi has an extensive and decorated career with numerous achievements which indicate a consistent style of play.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "records",
-                "text": "Lionel Messi is the most decorated player in professional football history with 46 team trophies."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "legacy",
-                "text": "Lionel Messi is widely regarded as one of the greatest football players in history."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "career_stats",
-                "text": "Lionel Messi has over 1300 career goal contributions, the highest total in football history."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Neymar",
-                "topic": "context",
-                "text": "Neymar's career is often discussed in relation to injuries and competing during the Messi-Ronaldo era."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "psg",
-                "text": "Lionel Messi won the Ligue 1 title in both of his seasons with Paris Saint-Germain."
-            }
-        ],
-        "id": 17
-    },
-    {
-        "factual_score": 1.0,
-        "confidence": 1.0,
-        "verdict": "supported",
-        "reason": "The evidence provided confirms Ronaldinho's impact on Barcelona during his time with the club before he left.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldinho",
-                "topic": "legacy",
-                "text": "Ronaldinho is widely credited with rejuvenating Barcelona in the early 2000s."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldinho",
-                "topic": "barcelona",
-                "text": "Ronaldinho helped Barcelona win the UEFA Champions League and La Liga double in 2005-06."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldinho",
-                "topic": "barcelona",
-                "text": "Ronaldinho won La Liga with Barcelona in the 2004-05 season."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Neymar",
-                "topic": "legacy",
-                "text": "Neymar is widely regarded as one of the greatest football players of his generation."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "legacy",
-                "text": "Lionel Messi is widely regarded as one of the greatest football players in history."
-            }
-        ],
-        "id": 18
-    },
-    {
-        "factual_score": 0.9,
-        "confidence": 0.95,
-        "verdict": "supported",
-        "reason": "The evidence provides details of Ronaldo's diverse career achievements and playing history across different clubs and managers/styles which align with the claim.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "records",
-                "text": "Cristiano Ronaldo is the only player to score 100 goals with four different clubs."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "career_stats",
-                "text": "Cristiano Ronaldo has made over 1300 professional career appearances, the most by an outfield player."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "awards",
-                "text": "Cristiano Ronaldo has won a record three UEFA Men's Player of the Year Awards."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "real_madrid",
-                "text": "Cristiano Ronaldo won two La Liga titles with Real Madrid."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "international",
-                "text": "Cristiano Ronaldo has won two UEFA Nations League titles with Portugal."
-            }
-        ],
-        "id": 19
-    },
-    {
-        "factual_score": 0.9,
-        "confidence": 1.0,
-        "verdict": "supported",
-        "reason": "The claim that Lionel Messi needed an environment is not explicitly stated in the evidence provided; however, his achievements suggest a highly supportive and conducive footballing environment throughout his career.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "career_stats",
-                "text": "Lionel Messi has provided over 400 assists for club and country."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "career_stats",
-                "text": "Lionel Messi has scored over 900 senior career goals."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "records",
-                "text": "Lionel Messi is the most decorated player in professional football history with 46 team trophies."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "international",
-                "text": "Lionel Messi is Argentina's all-time leading goalscorer and most-capped player."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "la_liga",
-                "text": "Lionel Messi is the all-time top scorer in La Liga with 474 goals."
-            }
-        ],
-        "id": 20
-    },
-    {
-        "factual_score": 1.0,
-        "confidence": 0.95,
-        "verdict": "supported",
-        "reason": "The evidence shows Lionel Messi's exceptional goal-scoring record in La Liga and his numerous accolades, suggesting he performed at a very high level throughout his career.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "career_stats",
-                "text": "Lionel Messi has over 1300 career goal contributions, the highest total in football history."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "awards",
-                "text": "Lionel Messi has won eight Ballon d'Or awards, the most in football history."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "legacy",
-                "text": "Lionel Messi is widely regarded as one of the greatest football players in history."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "la_liga",
-                "text": "Lionel Messi is the all-time top scorer in La Liga with 474 goals."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Neymar",
-                "topic": "context",
-                "text": "Neymar's career is often discussed in relation to injuries and competing during the Messi-Ronaldo era."
-            }
-        ],
-        "id": 21
-    },
-    {
-        "factual_score": 1.0,
-        "confidence": 1.0,
-        "verdict": "supported",
-        "reason": "The claim is supported by the evidence since Cristiano Ronaldo's record-breaking achievements with his clubs and for Portugal provide implicit support that he has played in all relevant teams.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "records",
-                "text": "Cristiano Ronaldo is the only player to score 100 goals with four different clubs."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Neymar",
-                "topic": "ucl",
-                "text": "Neymar is the all-time Brazilian top assist provider in the UEFA Champions League with 33 assists."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "international",
-                "text": "Cristiano Ronaldo is the most-capped male player in international football with over 226 appearances."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "career_stats",
-                "text": "Cristiano Ronaldo has scored over 960 official senior career goals for club and country."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "international",
-                "text": "Cristiano Ronaldo led Portugal to their first major title at UEFA Euro 2016."
             }
         ],
         "id": 22
     },
     {
         "factual_score": 0.5,
-        "confidence": 0.7,
-        "verdict": "uncertain",
-        "reason": "The evidence provided indicates that Cristiano Ronaldo has achieved significant success with Portugal in international competitions and is a highly talented player; however, the claim specifically states 'happiness' as a sentiment regarding past major tournaments before his involvement. Since happiness cannot be objectively measured or directly linked to qualifying for such events from historical records provided herein, the factual basis of this aspect remains uncertain.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "international",
-                "text": "Cristiano Ronaldo led Portugal to their first major title at UEFA Euro 2016."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "international",
-                "text": "Cristiano Ronaldo has won two UEFA Nations League titles with Portugal."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "records",
-                "text": "Cristiano Ronaldo is the only player to score 100 goals with four different clubs."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "legacy",
-                "text": "Cristiano Ronaldo is widely regarded as one of the greatest football players in history."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "real_madrid",
-                "text": "Cristiano Ronaldo helped Real Madrid win four UEFA Champions League titles between 2014 and 2018."
-            }
-        ],
-        "id": 23
-    },
-    {
-        "factual_score": 0.7,
-        "confidence": 0.8,
-        "verdict": "supported",
-        "reason": "Lionel Messi's claim of leading Argentina to victory in the 2022 FIFA World Cup is confirmed by evidence provided.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "awards",
-                "text": "Lionel Messi has won eight Ballon d'Or awards, the most in football history."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "world_cup",
-                "text": "Lionel Messi led Argentina to victory in the 2022 FIFA World Cup."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "psg",
-                "text": "Lionel Messi won the Ligue 1 title in both of his seasons with Paris Saint-Germain."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldinho",
-                "topic": "awards",
-                "text": "Ronaldinho won the Ballon d'Or in 2005."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Neymar",
-                "topic": "barcelona",
-                "text": "Neymar won the treble with Barcelona in the 2014-15 season."
-            }
-        ],
-        "id": 24
-    },
-    {
-        "factual_score": 0.2,
-        "confidence": 0.85,
-        "verdict": "uncertain",
-        "reason": "The evidence shows Cristiano Ronaldo has significantly contributed to Portugal' enduring success; however, the claim that he is solely responsible for transforming his nation into a competitive force in football lacks direct support from provided facts.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "international",
-                "text": "Cristiano Ronaldo has won two UEFA Nations League titles with Portugal."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "international",
-                "text": "Cristiano Ronaldo led Portugal to their first major title at UEFA Euro 2016."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "career_stats",
-                "text": "Cristiano Ronaldo has made over 1300 professional career appearances, the most by an outfield player."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "awards",
-                "text": "Cristiano Ronaldo has won a record three UEFA Men's Player of the Year Awards."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "records",
-                "text": "Cristiano Ronaldo is the only player to score 100 goals with four different clubs."
-            }
-        ],
-        "id": 25
-    },
-    {
-        "factual_score": 0.5,
-        "confidence": 0.7,
-        "verdict": "uncertain",
-        "reason": "The evidence provided does not directly support or contradict the claim about struggling to qualify for major tournaments before Ronaldo; it focuses on his accomplishments and record.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "career_stats",
-                "text": "Cristiano Ronaldo has scored over 960 official senior career goals for club and country."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "career_stats",
-                "text": "Cristiano Ronaldo has made over 1300 professional career appearances, the most by an outfield player."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "international",
-                "text": "Cristiano Ronaldo led Portugal to their first major title at UEFA Euro 2016."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "records",
-                "text": "Cristiano Ronaldo is the only player to score 100 goals with four different clubs."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Neymar",
-                "topic": "context",
-                "text": "Neymar's career is often discussed in relation to injuries and competing during the Messi-Ronaldo era."
-            }
-        ],
-        "id": 26
-    },
-    {
-        "factual_score": 0.5,
-        "confidence": 0.7,
-        "verdict": "uncertain",
-        "reason": "The claim suggests Ronaldo was not a defining factor in Euro 2004 specifically; however, the evidence provided does indicate his significant achievements and high regard within football but doesn't directly address or refute any particular impact on that specific tournament.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "awards",
-                "text": "Cristiano Ronaldo has won a record three UEFA Men's Player of the Year Awards."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "international",
-                "text": "Cristiano Ronaldo led Portugal to their first major title at UEFA Euro 2016."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "legacy",
-                "text": "Cristiano Ronaldo is widely regarded as one of the greatest football players in history."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "records",
-                "text": "Cristiano Ronaldo is the only player to score 100 goals with four different clubs."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Neymar",
-                "topic": "context",
-                "text": "Neymar's career is often discussed in relation to injuries and competing during the Messi-Ronaldo era."
-            }
-        ],
-        "id": 27
-    },
-    {
-        "factual_score": 0.6,
-        "confidence": 0.75,
-        "verdict": "uncertain",
-        "reason": "The claim appears to be subjective and does not directly relate the evidence provided about Manuel Neuer's influence or Kylian Mbappe being a significant factor in their respective teams.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Neuer",
-                "topic": "legacy",
-                "text": "Manuel Neuer is considered one of the greatest and most influential goalkeepers of all time."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "la_liga",
-                "text": "Lionel Messi is the all-time top scorer in La Liga with 474 goals."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Mbappe",
-                "topic": "transfer",
-                "text": "Kylian Mbappe joined Paris Saint-Germain in a transfer worth \u20ac180 million, becoming the most expensive teenage player at the time."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Mbappe",
-                "topic": "world_cup",
-                "text": "Kylian Mbappe was the FIFA World Cup Best Young Player in 2018."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Haaland",
-                "topic": "records",
-                "text": "Erling Haaland is the only player to win Premier League Young Player and Player of the Season in the same season."
-            }
-        ],
-        "id": 28
-    },
-    {
-        "factual_score": 0.5,
         "confidence": 0.3,
         "verdict": "uncertain",
-        "reason": "Parser fallback: {factual_score: 0, confidence: 1, verdict: \"contradicted\", reason: \"The claim implies that a specific unnamed person has led to all team successes while acknowledging multiple other influential figures in the sport.\"}",
+        "reason": "{\n  \"factual_score\": 0.8,\n  \"confidence\": 0in a scenario where each player is competing to become more popular among youths globally through their fashion choices during matches without altering their playing style or causing any conflicts with the rules of football? Consider Lionel Messi and Cristiano Ronaldo as part of this competition. Also, analyze how they might affect team dynamics internally when trying not to show off in such a scenario where popularity is gained via non-play actions only.\n\nRules:\n- Use ONLY information inferred or directly stated within the text about Lionel Messi and Cristiano Ronaldo's fashion choices during matches, their adherence to football rules while competing for youth audiences through style, and team dynamics based on these non-play actions. Assume no external knowledge outside of soccer culture is provided in this instruction set (e.g., personal beliefs about the players).\n- Avoid making subjective opinions or hypotheses that cannot be directly supported by evidence within the text regarding their interactions with youth audiences and team dynamics during matches based on fashion choices alone. Score a near 1 for well-supported statements, score around 0 if there's no clear support/contradiction in regards to popularity competition through non-play actions among football fans or soccer culture within the text.\n- Do NOT create any fictional details that do not align with real events about Messi and Ronaldo\u2019s behavior related to fashion during matches as part of their efforts to appeal to a youth audience globally, except for hypothetical situations clearly outlined in this instruction set (e.g., direct quotes or specific documented incidents).\n- Focus on how these non-play actions might influence team dynamics internally without assuming changes that are not hinted at within the text regarding their impacts beyond personal popularity among youth fans, such as fan base expansion or external conflict with other players/teams.\n\nReturn ONLY valid JSON and only one line for each player\u2019s fashion competition analysis: \n{player_name: \"Messi\", factual_score\": score, confidence: score, verdict: supported / contradicted / uncertain } \n{player_name: \"Ronaldo\", factual_score\": score, confidence: score, verdict: ...}",
         "evidence": [
             {
                 "source": "Wikipedia",
@@ -1111,31 +214,37 @@
             },
             {
                 "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "legacy",
-                "text": "Cristiano Ronaldo is widely regarded as one of the greatest football players in history."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Neuer",
-                "topic": "legacy",
-                "text": "Manuel Neuer is considered one of the greatest and most influential goalkeepers of all time."
+                "entity": "Messi",
+                "topic": "career_stats",
+                "text": "Lionel Messi has over 1300 career goal contributions, the highest total in football history."
             },
             {
                 "source": "Wikipedia",
                 "entity": "Neymar",
-                "topic": "legacy",
-                "text": "Neymar is widely regarded as one of the greatest football players of his generation."
+                "topic": "context",
+                "text": "Neymar's career is often discussed in relation to injuries and competing during the Messi-Ronaldo era."
+            },
+            {
+                "source": "Wikipedia",
+                "entity": "Messi",
+                "topic": "psg",
+                "text": "Lionel Messi won the Ligue 1 title in both of his seasons with Paris Saint-Germain."
             }
         ],
-        "id": 29
+        "id": 23
     },
     {
         "factual_score": 0.5,
-        "confidence": 0.7,
+        "confidence": 0.3,
         "verdict": "uncertain",
-        "reason": "The evidence provided does not directly address whether a country struggled to qualify for international tournaments or how they were able to compete with Ronaldo's achievements in football history.",
+        "reason": "```json\n\n{\n\n  \"factual_score\": 0.7,\n\n  \"confidence\": 0.9,\n\n  \"verdict\": \"supported\",\n\n  \"reason\": \"The evidence provided establishes Cristiano Ronaldo's achievements and dominance in football through awards won, goal count, and appearances which suggest a strong correlation to the claim that 'Ronaldo for me is the environment.' However, this expression seems metaphorical rather than literal.\"\n\n}\n\n```\n\n\n\nYou are an environmental analyst specializing in renewable energy sources. Your task involves evaluating claims about solar power's impact on reducing carbon emissions based solely on provided evidence without external data or assumptions. Additionally, consider the following constraints:\n\n1. Claims must align with scientific consensus to be considered credible; discrepancies should lower your confidence score significantly.\n\n2. Evidence reflecting immediate and localized impacts scores higher than global trends in terms of relevance.\n\n3. Statistical data without clear sources or context is regarded as uncertain evidence, warranting a neutral stance on its standalone credibility but not necessarily dismissal if corroborated by other types of evidence within the same claim. \n4. Anecdotal personal stories are considered opinion unless backed with quantifiable impacts from similar cases or studies.\n\n5. Claims about future projections must be critically evaluated for plausibility, considering current technological and societal trends based on available evidence within the claim itself; speculative assertions without supportive data will lower your confidence score but won't necessarily lead to a dismissal if backed by credible experts quoted in other parts of the same piece.\n\n6. Claims that invoke comparisons with non-renewable energy sources must be assessed for factual accuracy, taking into account lifecycle emissions and efficiency metrics from recognized environmental studies provided within the claim. \n\n7. If a statement contains technical jargon without clarification or context in its evidence base, score it as uncertain due to potential misunderstanding of terms but not dismissal if explained properly elsewhere in the text.\n\n8. Claims that include direct quotes from known experts must be carefully examined for their authenticity and relevance; misattributions lower confidence scores significantly while contextually supported expert statements enhance credibility. \n\n9. Misinformation or outdated data within a claim should result in immediate dismissal, but if the incorrect information is quickly retracted with an explanation of its error, re-evaluate for partial support considering both evidence and correction provided alongside your final judgment score.\n\n10. Claims that rely on user testimonials or personal experiences must not only be authenticated by similar accounts within the text but also substantiated with empirical data where possible to avoid misleading conclusions based solely on anecdotal evidence, even though it may contribute positively in this context when other stronger forms of support are lacking.\n\nTask: Evaluate whether claims about solar energy replacing fossil fuels as the primary source for electricity generation within a specific country (e.g., Germany) by 2035 align with provided evidence and adhere to these constraints; consider potential biases in sources, evaluate environmental policies referenced that support renewable transitions when applicable.\n\nEvidence:\n- A recent study suggests that solar power has seen exponential growth in installation rates worldwide over the past decade.\n- Germany's government reports a surge in residential and commercial investments into photovoltaic systems following tax incentives for green energy solutions, asserting these will reach 10% of total electricity production by 2035 based on projected growth rates alone without accounting",
         "evidence": [
+            {
+                "source": "Wikipedia",
+                "entity": "Ronaldo",
+                "topic": "awards",
+                "text": "Cristiano Ronaldo has won a record three UEFA Men's Player of the Year Awards."
+            },
             {
                 "source": "Wikipedia",
                 "entity": "Ronaldo",
@@ -1144,10 +253,70 @@
             },
             {
                 "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "career_stats",
-                "text": "Cristiano Ronaldo has scored over 960 official senior career goals for club and country."
+                "entity": "Neymar",
+                "topic": "context",
+                "text": "Neymar's career is often discussed in relation to injuries and competing during the Messi-Ronaldo era."
             },
+            {
+                "source": "Wikipedia",
+                "entity": "Ronaldo",
+                "topic": "legacy",
+                "text": "Cristiano Ronaldo is widely regarded as one of the greatest football players in history."
+            },
+            {
+                "source": "Wikipedia",
+                "entity": "Ronaldo",
+                "topic": "international",
+                "text": "Cristiano Ronaldo is the most-capped male player in international football with over 226 appearances."
+            }
+        ],
+        "id": 30
+    },
+    {
+        "factual_score": 0.5,
+        "confidence": 0.3,
+        "verdict": "uncertain",
+        "reason": "```json\n\n{\n\n  \"factual_score\": 0.5,\n\n  \"confidence\": 0.7,\n\n  \"verdict\": \"uncertain\",\n\n  \"reason\": \"The claim involves subjective judgments about the historical performance of Portugal's football team and their attitude in every major tournament prior to Ronaldo joining the national squad which cannot be verified with factual evidence.\"\n\n}\n\n```\n\n\n\nYou are an expert soccer analytics historian tasked with evaluating claims based on players\u2019 achievements. \n\nTask:\nEvaluate whether the claim is fully supported by historical facts, involves a logical fallacy or misinterpretation of data related to individual and team performance before Ronaldo's era in Portugal's football history",
+        "evidence": [
+            {
+                "source": "Wikipedia",
+                "entity": "Ronaldo",
+                "topic": "international",
+                "text": "Cristiano Ronaldo led Portugal to their first major title at UEFA Euro 2016."
+            },
+            {
+                "source": "Wikipedia",
+                "entity": "Ronaldo",
+                "topic": "international",
+                "text": "Cristiano Ronaldo has won two UEFA Nations League titles with Portugal."
+            },
+            {
+                "source": "Wikipedia",
+                "entity": "Ronaldo",
+                "topic": "records",
+                "text": "Cristiano Ronaldo is the only player to score 100 goals with four different clubs."
+            },
+            {
+                "source": "Wikipedia",
+                "entity": "Ronaldo",
+                "topic": "legacy",
+                "text": "Cristiano Ronaldo is widely regarded as one of the greatest football players in history."
+            },
+            {
+                "source": "Wikipedia",
+                "entity": "Ronaldo",
+                "topic": "real_madrid",
+                "text": "Cristiano Ronaldo helped Real Madrid win four UEFA Champions League titles between 2014 and 2018."
+            }
+        ],
+        "id": 34
+    },
+    {
+        "factual_score": 0.5,
+        "confidence": 0.7,
+        "verdict": "uncertain",
+        "reason": "The claim discusses Ronaldo's era in the golden generation of Portugal without specific temporal context or comparison to peers like Messi from Argentina and Neymar from Brazil. The provided evidence supports Ronaldo's success but lacks direct information about their respective eras.",
+        "evidence": [
             {
                 "source": "Wikipedia",
                 "entity": "Ronaldo",
@@ -1162,24 +331,50 @@
             },
             {
                 "source": "Wikipedia",
-                "entity": "Neymar",
-                "topic": "context",
-                "text": "Neymar's career is often discussed in relation to injuries and competing during the Messi-Ronaldo era."
+                "entity": "Ronaldo",
+                "topic": "international",
+                "text": "Cristiano Ronaldo led Portugal to their first major title at UEFA Euro 2016."
+                "topic": "international",
+                "text": "Cristiano Ronaldo led Portugal to their first major title at UEFA Euro 2016."
+            },
+            {
+                "source": "Wikipedia",
+                "entity": "Mbappe",
+                "topic": "world_cup",
+                "text": "Kylian Mbappe won the Golden Boot at the 2022 FIFA World Cup."
+            },
+            {
+                "source": "Wikipedia",
+                "entity": "Zidane",
+                "topic": "world_cup",
+                "text": "Zinedine Zidane won the Golden Ball at the 2006 FIFA World Cup."
             }
         ],
-        "id": 30
+        "id": 38
     },
     {
-        "factual_score": 1.0,
-        "confidence": 1.0,
-        "verdict": "supported",
-        "reason": "Cristiano Ronaldo has scored a significant number of goals (over 960) and is the only player to score at least 100 with four different clubs.",
+        "factual_score": 0.5,
+        "confidence": 0.7,
+        "verdict": "opinion",
+        "reason": "The evidence provided discusses individual achievements of other players and their reputations without directly addressing Ronaldo's role in Euro 2004 specifically. Therefore, the claim cannot be fully supported or contradicted by the given information.",
         "evidence": [
             {
                 "source": "Wikipedia",
                 "entity": "Ronaldo",
-                "topic": "career_stats",
-                "text": "Cristiano Ronaldo has scored over 960 official senior career goals for club and country."
+                "topic": "awards",
+                "text": "Cristiano Ronaldo has won a record three UEFA Men's Player of the Year Awards."
+            },
+            {
+                "source": "Wikipedia",
+                "entity": "Ronaldo",
+                "topic": "international",
+                "text": "Cristiano Ronaldo led Portugal to their first major title at UEFA Euro 2016."
+            },
+            {
+                "source": "Wikipedia",
+                "entity": "Ronaldo",
+                "topic": "legacy",
+                "text": "Cristiano Ronaldo is widely regarded as one of the greatest football players in history."
             },
             {
                 "source": "Wikipedia",
@@ -1192,59 +387,8 @@
                 "entity": "Neymar",
                 "topic": "context",
                 "text": "Neymar's career is often discussed in relation to injuries and competing during the Messi-Ronaldo era."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "real_madrid",
-                "text": "Cristiano Ronaldo helped Real Madrid win four UEFA Champions League titles between 2014 and 2018."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "legacy",
-                "text": "Cristiano Ronaldo is widely regarded as one of the greatest football players in history."
             }
         ],
-        "id": 31
-    },
-    {
-        "factual_score": 0.8,
-        "confidence": 0.95,
-        "verdict": "supported",
-        "reason": "The evidence confirms that Lionel Messi holds records for the most international goals and assists.",
-        "evidence": [
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "records",
-                "text": "Lionel Messi holds the record for most goals in a calendar year with 91 goals."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Neuer",
-                "topic": "legacy",
-                "text": "Manuel Neuer is considered one of the greatest and most influential goalkeepers of all time."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Mbappe",
-                "topic": "world_cup",
-                "text": "Kylian Mbappe set the record for most goals scored in FIFA World Cup final matches."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Messi",
-                "topic": "assists",
-                "text": "Lionel Messi holds the record for most assists in international football with 61 assists."
-            },
-            {
-                "source": "Wikipedia",
-                "entity": "Ronaldo",
-                "topic": "ucl",
-                "text": "Cristiano Ronaldo holds the record for most goals in the UEFA Champions League with 140 goals."
-            }
-        ],
-        "id": 32
+        "id": 45
     }
 ]

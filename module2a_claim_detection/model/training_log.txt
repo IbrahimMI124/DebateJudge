@@ -1,0 +1,15 @@
+Epoch 1 | Train Loss: 0.2186 | Train F1: 0.9281 | Val Loss: 0.0263 | Val F1: 0.9938
+Epoch 2 | Train Loss: 0.0136 | Train F1: 0.9974 | Val Loss: 0.0143 | Val F1: 0.9953
+Epoch 3 | Train Loss: 0.0053 | Train F1: 0.9988 | Val Loss: 0.0139 | Val F1: 0.9969
+
+Best Val F1: 0.9969
+
+Final Classification Report:
+              precision    recall  f1-score   support
+
+   non-claim     0.9966    0.9966    0.9966       293
+       claim     0.9969    0.9969    0.9969       322
+
+    accuracy                         0.9967       615
+   macro avg     0.9967    0.9967    0.9967       615
+weighted avg     0.9967    0.9967    0.9967       615
